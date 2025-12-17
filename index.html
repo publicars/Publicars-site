@@ -18,6 +18,8 @@
             --primary: #FFD700; /* Amarelo Publicars */
             --dark-bg: #050505;
             --text-main: #ffffff;
+            --danger: #ff4444;
+            --success: #00C851;
         }
 
         body {
@@ -38,7 +40,6 @@
         .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
         .nav-link:hover { color: var(--primary) !important; }
         
-        /* LOGO COM CIRCULO BRANCO (O AJUSTE QUE VOCÊ PEDIU) */
         .logo-circle {
             background-color: #ffffff;
             border-radius: 50%;
@@ -46,7 +47,7 @@
             width: 55px;
             height: 55px;
             object-fit: contain;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* Brilho dourado suave */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
             transition: 0.3s;
         }
         .logo-circle:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
@@ -66,7 +67,6 @@
         .hero-title { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
         .text-highlight { color: var(--primary); }
 
-        /* VIDEO CONTAINER (INTRO) */
         .video-intro-wrapper {
             border-radius: 20px;
             overflow: hidden;
@@ -74,12 +74,9 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             background: #000;
         }
-        .video-intro-wrapper video {
-            width: 100%;
-            display: block;
-        }
+        .video-intro-wrapper video { width: 100%; display: block; }
 
-        /* MOLDURA TABLET (PARA A SEÇÃO DE BAIXO) */
+        /* MOLDURA TABLET */
         .tablet-frame {
             border: 12px solid #222; border-radius: 20px; overflow: hidden;
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.1); background: #000;
@@ -95,12 +92,17 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* DEPOIMENTOS */
-        .testimonial-video {
-            width: 100%; border-radius: 20px; border: 2px solid var(--primary);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        /* COMPARATIVO */
+        .card-compare {
+            border-radius: 20px; padding: 30px; height: 100%; position: relative; overflow: hidden;
+            transition: 0.3s; border: 1px solid #333;
         }
-
+        .card-compare.bad { background: linear-gradient(145deg, #1a1a1a, #2a0000); border-color: #550000; }
+        .card-compare.good { background: linear-gradient(145deg, #1a1a1a, #001a00); border-color: var(--primary); transform: scale(1.02); box-shadow: 0 10px 40px rgba(0,200,83,0.1); z-index: 2; }
+        
+        .price-tag { font-size: 2.5rem; font-weight: 900; margin: 15px 0; }
+        .list-check li { margin-bottom: 10px; font-size: 0.9rem; list-style: none; }
+        
         /* SIMULADOR */
         .simulador-box { background: #151515; padding: 40px; border-radius: 25px; border: 1px solid #333; }
         input[type=range] { accent-color: var(--primary); width: 100%; }
@@ -108,12 +110,12 @@
         /* FOOTER */
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
 
-        /* RESPONSIVIDADE */
         @media (max-width: 991px) {
             .hero { padding-top: 120px; text-align: center; }
             .hero-title { font-size: 2.5rem; }
             .d-flex.gap-3 { justify-content: center; }
-            .order-mobile { order: -1; margin-bottom: 30px; } /* Vídeo sobe no mobile */
+            .order-mobile { order: -1; margin-bottom: 30px; }
+            .card-compare.good { transform: scale(1); margin-top: 20px; }
         }
     </style>
 </head>
@@ -130,7 +132,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#solucao">A Solução</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
                         <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
@@ -164,12 +166,10 @@
                         </a>
                     </div>
                 </div>
-                
                 <div class="col-lg-6 order-mobile">
                     <div class="video-intro-wrapper">
                         <video autoplay muted loop playsinline>
                             <source src="static/intro.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeos.
                         </video>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                             <source src="static/tablet-carro.mp4" type="video/mp4">
                         </video>
                         <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
-                            <small class="text-white fw-bold">📍 Tecnologia GPS Integrada</small>
+                            <small class="text-white fw-bold">📍 Monitorado via GPS 24h</small>
                         </div>
                     </div>
                 </div>
@@ -197,14 +197,13 @@
                         Posicionamos tablets de alta definição no encosto de cabeça dos carros. 
                         O passageiro interage, assiste ao conteúdo e escaneia seu QR Code durante toda a viagem.
                     </p>
-                    
                     <div class="row mt-4 g-3">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center p-3 border border-secondary rounded-3">
-                                <i class="fas fa-eye text-primary fa-2x me-3"></i>
+                                <i class="fas fa-users text-primary fa-2x me-3"></i>
                                 <div>
-                                    <h5 class="text-white m-0 fw-bold">100% Visível</h5>
-                                    <small class="text-secondary">Sem AdBlock</small>
+                                    <h5 class="text-white m-0 fw-bold">30 Pessoas/Dia</h5>
+                                    <small class="text-secondary">Audiência Mínima por Carro</small>
                                 </div>
                             </div>
                         </div>
@@ -223,23 +222,6 @@
         </div>
     </section>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="rocket-card">
-                        <img src="static/foguete-1.png" class="img-fluid" alt="Não fique para trás">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="rocket-card">
-                        <img src="static/foguete-2.png" class="img-fluid" alt="Invista para ser lembrado">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="depoimentos" class="py-5 bg-dark">
         <div class="container py-5 text-center">
             <h6 class="text-primary fw-bold text-uppercase">Resultados Comprovados</h6>
@@ -248,8 +230,65 @@
                 <div class="col-lg-8">
                     <video class="testimonial-video" controls poster="static/passageiro.jpg">
                         <source src="static/depoimentos.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeos.
                     </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparativo" class="py-5" style="background: #111;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-secondary fw-bold text-uppercase">Onde seu dinheiro rende mais?</h6>
+                <h2 class="text-white fw-bold">Pare de jogar dinheiro no lixo</h2>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="card-compare bad">
+                        <div class="badge bg-danger mb-3">MÍDIA TRADICIONAL</div>
+                        <h3 class="text-white fw-bold">1.000 Panfletos</h3>
+                        <p class="text-muted">O jeito antigo e arriscado.</p>
+                        
+                        <div class="price-tag text-white">R$ 380,00<span class="fs-6 text-muted fw-normal">/ação</span></div>
+                        <hr class="border-secondary">
+                        
+                        <ul class="list-check ps-0 text-white-50">
+                            <li><i class="fas fa-times text-danger me-2"></i> Impressão: R$ 180,00</li>
+                            <li><i class="fas fa-times text-danger me-2"></i> Arte: R$ 50,00</li>
+                            <li><i class="fas fa-times text-danger me-2"></i> <strong>Diária Panfleteiro: R$ 150,00</strong></li>
+                            <li class="mt-3 text-white"><i class="fas fa-exclamation-triangle text-warning me-2"></i> <strong>RISCOS:</strong></li>
+                            <li>• Chuva (Perda total do material)</li>
+                            <li>• 80% vai pro lixo sem ler</li>
+                            <li>• Multa da Prefeitura (Sujeira na via)</li>
+                            <li>• <strong>Risco de Processo Trabalhista</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card-compare good">
+                        <div class="badge bg-success mb-3">TECNOLOGIA PUBLICARS</div>
+                        <h3 class="text-white fw-bold">3 Carros / Mês</h3>
+                        <p class="text-muted">Sua marca rodando a cidade toda.</p>
+                        
+                        <div class="price-tag text-primary">R$ 375,00<span class="fs-6 text-muted fw-normal">/mês</span></div>
+                        <hr class="border-secondary">
+                        
+                        <ul class="list-check ps-0 text-white">
+                            <li><i class="fas fa-check text-success me-2"></i> <strong>3 Veículos Rodando</strong></li>
+                            <li><i class="fas fa-check text-success me-2"></i> Exposição por 30 Dias</li>
+                            <li><i class="fas fa-check text-success me-2"></i> ~2.700 Passageiros Impactados</li>
+                            <li class="mt-3 text-white"><i class="fas fa-star text-primary me-2"></i> <strong>VANTAGENS:</strong></li>
+                            <li>• Ambiente Climatizado e Seguro</li>
+                            <li>• Audiência Cativa (Sem distração)</li>
+                            <li>• Relatório Auditável (GPS)</li>
+                            <li>• <strong>ZERO Risco Trabalhista</strong></li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#simulador" class="btn btn-success rounded-pill w-100 fw-bold">Escolher Publicars</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,34 +298,36 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-4">
-                    <h2 class="text-white fw-bold mb-3">Quanto custa anunciar?</h2>
-                    <p class="text-secondary mb-4">Menos do que você imagina. Simule seu investimento e veja o alcance estimado.</p>
+                    <h2 class="text-white fw-bold mb-3">Faça sua Simulação</h2>
+                    <p class="text-secondary mb-4">
+                        Veja o impacto que você pode gerar com o mesmo valor que gastaria em mídias ultrapassadas.
+                    </p>
                     <ul class="list-unstyled text-white">
-                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Custo por View a partir de R$ 0,10</li>
-                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Segmentação por Bairro</li>
+                        <li class="mb-2"><i class="fas fa-car text-primary me-2"></i> Apenas R$ 125,00 por veículo/mês</li>
+                        <li class="mb-2"><i class="fas fa-users text-primary me-2"></i> Mínimo de 900 passageiros por carro</li>
                     </ul>
                 </div>
                 <div class="col-lg-6 offset-lg-1">
                     <div class="simulador-box">
-                        <label class="text-white fw-bold mb-2">Investimento Mensal:</label>
-                        <h2 class="text-primary display-4 fw-bold mb-4" id="valorDisplay">R$ 500,00</h2>
+                        <label class="text-white fw-bold mb-2">Seu Investimento Mensal:</label>
+                        <h2 class="text-primary display-4 fw-bold mb-4" id="valorDisplay">R$ 375,00</h2>
                         
-                        <input type="range" min="300" max="5000" step="100" value="500" id="investimentoRange">
+                        <input type="range" min="125" max="2500" step="125" value="375" id="investimentoRange">
                         
                         <div class="row mt-4 text-center">
                             <div class="col-6 border-end border-secondary">
-                                <small class="text-secondary fw-bold text-uppercase">Views Estimadas</small>
-                                <h3 class="text-white fw-bold mt-1" id="viewsDisplay">5.000</h3>
+                                <small class="text-secondary fw-bold text-uppercase">Veículos</small>
+                                <h3 class="text-white fw-bold mt-1" id="carrosDisplay">3</h3>
                             </div>
                             <div class="col-6">
-                                <small class="text-secondary fw-bold text-uppercase">Impactos/Dia</small>
-                                <h3 class="text-white fw-bold mt-1" id="dailyDisplay">166</h3>
+                                <small class="text-secondary fw-bold text-uppercase">Público Estimado</small>
+                                <h3 class="text-white fw-bold mt-1" id="viewsDisplay">2.700</h3>
                             </div>
                         </div>
 
                         <div class="d-grid mt-4">
                             <a href="#" id="btnWhatsappSimulador" class="btn btn-success btn-lg rounded-pill fw-bold py-3">
-                                <i class="fab fa-whatsapp me-2"></i> Quero Anunciar
+                                <i class="fab fa-whatsapp me-2"></i> Contratar Campanha
                             </a>
                         </div>
                     </div>
@@ -298,7 +339,6 @@
     <footer>
         <div class="container text-center">
             <img src="static/7.png" alt="Publicars Logo" class="logo-circle mb-3">
-            
             <p class="text-secondary small m-0">
                 Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
                 Rua Tamoio, 741 - Canoas/RS | (51) 99300-1678
@@ -316,20 +356,29 @@
         const range = document.getElementById('investimentoRange');
         const valorDisplay = document.getElementById('valorDisplay');
         const viewsDisplay = document.getElementById('viewsDisplay');
-        const dailyDisplay = document.getElementById('dailyDisplay');
+        const carrosDisplay = document.getElementById('carrosDisplay');
         const btnWhatsapp = document.getElementById('btnWhatsappSimulador');
-        const CPV = 0.10; 
+
+        // Métricas Fixas
+        const PRECO_POR_CARRO = 125;
+        const VIEWS_POR_CARRO = 900; // 30 pessoas * 30 dias
 
         function updateSimulador() {
             let valor = parseFloat(range.value);
-            let views = Math.floor(valor / CPV);
-            let daily = Math.floor(views / 30);
+            
+            // Calcula número de carros (arredondado)
+            let carros = Math.round(valor / PRECO_POR_CARRO);
+            
+            // Recalcula o valor exato baseado no nº de carros para não dar quebrado
+            let valorReal = carros * PRECO_POR_CARRO;
+            
+            let views = carros * VIEWS_POR_CARRO;
 
-            valorDisplay.innerText = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            valorDisplay.innerText = valorReal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            carrosDisplay.innerText = carros;
             viewsDisplay.innerText = views.toLocaleString('pt-BR');
-            dailyDisplay.innerText = daily.toLocaleString('pt-BR');
 
-            const msg = `Olá! Simulei R$ ${valor} no site e quero anunciar na Publicars!`;
+            const msg = `Olá! Fiz uma simulação: Quero anunciar em ${carros} carros (R$ ${valorReal}/mês) para atingir cerca de ${views} pessoas.`;
             btnWhatsapp.href = `https://wa.me/5551993001678?text=${encodeURIComponent(msg)}`;
         }
 
