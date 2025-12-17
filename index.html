@@ -32,12 +32,11 @@
 
         /* NAVBAR */
         .navbar {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding: 15px 0;
         }
         .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; }
-        .nav-link:hover { color: var(--primary) !important; }
         .btn-area-cliente {
             border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 8px 25px;
             text-decoration: none; font-weight: bold; transition: 0.3s;
@@ -64,15 +63,22 @@
         /* VIDEO INSTITUCIONAL */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; overflow: hidden;
-            border-radius: 20px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 20px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: #000;
         }
         .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* CARDS FOGUETE */
         .rocket-card {
             border: none; background: transparent; transition: 0.3s;
+            text-align: center;
         }
-        .rocket-card img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
+        .rocket-card img { 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border: 1px solid #333; 
+            max-width: 100%;
+            height: auto;
+        }
         .rocket-card:hover { transform: translateY(-10px); }
 
         /* DEPOIMENTOS */
@@ -137,7 +143,8 @@
                 <div class="col-lg-5 text-center">
                     <div class="tablet-frame">
                         <video autoplay muted loop playsinline>
-                            <source src="static/videos/tablet-carro.mp4" type="video/mp4">
+                            <source src="static/tablet-carro.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
                         </video>
                         <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
                             <small class="text-white fw-bold">📍 Veículo Rastreado 24h</small>
@@ -153,10 +160,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="video-wrapper">
-                        <video controls poster="static/images/passageiro.jpg">
-                            <source src="static/videos/institucional.webm" type="video/webm">
-                            <source src="static/videos/institucional.mp4" type="video/mp4">
-                        </video>
+                        <video controls>
+                            <source src="static/institucional.webm" type="video/webm">
+                            </video>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
@@ -186,12 +192,12 @@
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="rocket-card">
-                        <img src="static/images/foguete-1.jpg" class="img-fluid w-100" alt="Não fique para trás">
+                        <img src="static/foguete-1.png" class="img-fluid" alt="Não fique para trás">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="rocket-card">
-                        <img src="static/images/foguete-2.jpg" class="img-fluid w-100" alt="Invista para ser lembrado">
+                        <img src="static/foguete-2.png" class="img-fluid" alt="Invista para ser lembrado">
                     </div>
                 </div>
             </div>
@@ -206,36 +212,10 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <video class="testimonial-video" controls>
-                        <source src="static/videos/depoimentos.mp4" type="video/mp4">
+                        <source src="static/depoimentos.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
                     </video>
                     <p class="text-muted mt-3">Assista aos relatos de quem já anunciou.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="text-white fw-bold">Entretenimento que Retém</h2>
-                <p class="text-secondary">O passageiro assiste porque gosta. Seu anúncio aparece entre conteúdos incríveis.</p>
-            </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4">
-                    <div class="card bg-black border-secondary">
-                        <video src="static/videos/receitas.mp4" autoplay muted loop class="card-img-top"></video>
-                        <div class="card-body">
-                            <h5 class="text-white h6 mb-0"><i class="fas fa-utensils text-warning me-2"></i>Minuto Receita</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-black border-secondary">
-                        <video src="static/videos/aventura.mp4" autoplay muted loop class="card-img-top"></video>
-                        <div class="card-body">
-                            <h5 class="text-white h6 mb-0"><i class="fas fa-mountain text-warning me-2"></i>Minuto Aventura</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
