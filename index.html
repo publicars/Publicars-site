@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicars | Sua Marca em Movimento</title>
+    <title>Publicars | A Revolução do DOOH</title>
     <meta name="description" content="Mídia DOOH em carros de aplicativo. Alcance seu público em Porto Alegre e região.">
     
     <link rel="icon" type="image/png" href="static/7.png">
@@ -17,7 +17,6 @@
         :root {
             --primary: #FFD700; /* Amarelo Publicars */
             --dark-bg: #050505;
-            --card-bg: #121212;
             --text-main: #ffffff;
         }
 
@@ -34,9 +33,24 @@
         .navbar {
             background-color: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 15px 0;
+            padding: 10px 0;
         }
-        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; }
+        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary) !important; }
+        
+        /* LOGO COM CIRCULO BRANCO (O AJUSTE QUE VOCÊ PEDIU) */
+        .logo-circle {
+            background-color: #ffffff;
+            border-radius: 50%;
+            padding: 5px;
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* Brilho dourado suave */
+            transition: 0.3s;
+        }
+        .logo-circle:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
+
         .btn-area-cliente {
             border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 8px 25px;
             text-decoration: none; font-weight: bold; transition: 0.3s;
@@ -45,39 +59,39 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 140px 0 80px;
-            background: linear-gradient(to bottom, #000, #111);
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at top right, #1a1a1a 0%, #000 100%);
             position: relative;
         }
         .hero-title { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
         .text-highlight { color: var(--primary); }
 
-        /* MOLDURA TABLET */
+        /* VIDEO CONTAINER (INTRO) */
+        .video-intro-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #000;
+        }
+        .video-intro-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        /* MOLDURA TABLET (PARA A SEÇÃO DE BAIXO) */
         .tablet-frame {
             border: 12px solid #222; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2); background: #000;
-            position: relative; aspect-ratio: 9/16; max-width: 350px; margin: 0 auto;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.1); background: #000;
+            position: relative; aspect-ratio: 9/16; max-width: 300px; margin: 0 auto;
         }
         .tablet-frame video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* VIDEO INSTITUCIONAL */
-        .video-wrapper {
-            position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; overflow: hidden;
-            border-radius: 20px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: #000;
-        }
-        .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
         /* CARDS FOGUETE */
-        .rocket-card {
-            border: none; background: transparent; transition: 0.3s;
-            text-align: center;
-        }
+        .rocket-card { border: none; background: transparent; transition: 0.3s; text-align: center; }
         .rocket-card img { 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-            border: 1px solid #333; 
-            max-width: 100%;
-            height: auto;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border: 1px solid #333; max-width: 100%; height: auto; 
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
@@ -93,6 +107,14 @@
 
         /* FOOTER */
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 991px) {
+            .hero { padding-top: 120px; text-align: center; }
+            .hero-title { font-size: 2.5rem; }
+            .d-flex.gap-3 { justify-content: center; }
+            .order-mobile { order: -1; margin-bottom: 30px; } /* Vídeo sobe no mobile */
+        }
     </style>
 </head>
 <body>
@@ -100,17 +122,17 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="static/7.png" alt="Publicars" height="40">
+                <img src="static/7.png" alt="Publicars" class="logo-circle">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="fa fa-bars text-white"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center">
+                <ul class="navbar-nav align-items-center mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#solucao">A Solução</a></li>
                     <li class="nav-item"><a class="nav-link" href="#depoimentos">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
-                    <li class="nav-item ms-3">
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
                         <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
                     </li>
                 </ul>
@@ -121,34 +143,34 @@
     <section class="hero d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2">🚀 Decole suas Vendas</span>
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2">
+                        <i class="fas fa-play me-2"></i> Publicidade do Futuro
+                    </span>
                     <h1 class="hero-title">
-                        Quem não é visto <br>
-                        <span class="text-highlight">Não é Lembrado.</span>
+                        Conecte sua Marca <br>
+                        <span class="text-highlight">Em Movimento.</span>
                     </h1>
                     <p class="lead text-secondary mb-4">
-                        A Publicars transforma carros de aplicativo em vitrines digitais inteligentes. 
-                        Sua marca a 50cm do passageiro, com áudio, vídeo e interação.
+                        A Publicars transforma carros de aplicativo em canais de mídia poderosos. 
+                        Chega de ser ignorado. Seja visto onde o seu cliente está.
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-4">
                             Simular Agora
                         </a>
                         <a href="https://wa.me/5551993001678" class="btn btn-outline-light btn-lg rounded-pill px-4">
-                            <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                            <i class="fab fa-whatsapp me-2"></i> Falar Conosco
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-5 text-center">
-                    <div class="tablet-frame">
+                
+                <div class="col-lg-6 order-mobile">
+                    <div class="video-intro-wrapper">
                         <video autoplay muted loop playsinline>
-                            <source src="static/tablet-carro.mp4" type="video/mp4">
+                            <source src="static/intro.mp4" type="video/mp4">
                             Seu navegador não suporta vídeos.
                         </video>
-                        <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
-                            <small class="text-white fw-bold">📍 Veículo Rastreado 24h</small>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -158,28 +180,42 @@
     <section id="solucao" class="py-5 bg-black">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="video-wrapper">
-                        <video controls>
-                            <source src="static/institucional.webm" type="video/webm">
-                            </video>
+                <div class="col-lg-5 text-center mb-5 mb-lg-0">
+                    <div class="tablet-frame">
+                        <video autoplay muted loop playsinline>
+                            <source src="static/tablet-carro.mp4" type="video/mp4">
+                        </video>
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
+                            <small class="text-white fw-bold">📍 Tecnologia GPS Integrada</small>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <h6 class="text-primary fw-bold text-uppercase">Somos a Publicars</h6>
-                    <h2 class="text-white fw-bold mb-3">Conexão real com seu público</h2>
-                    <p class="text-secondary">
-                        Não somos apenas telas. Somos uma plataforma de inteligência. Nossos passageiros não pulam o anúncio. 
-                        Eles interagem, escaneiam QR Codes e consomem conteúdo de qualidade enquanto se deslocam.
+                <div class="col-lg-6 offset-lg-1">
+                    <h6 class="text-primary fw-bold text-uppercase">Tecnologia Embarcada</h6>
+                    <h2 class="text-white fw-bold mb-4">Seu anúncio na mão do passageiro</h2>
+                    <p class="text-secondary fs-5">
+                        Posicionamos tablets de alta definição no encosto de cabeça dos carros. 
+                        O passageiro interage, assiste ao conteúdo e escaneia seu QR Code durante toda a viagem.
                     </p>
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <h3 class="text-white fw-bold">88%</h3>
-                            <small class="text-secondary">Penetração OOH</small>
+                    
+                    <div class="row mt-4 g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 border border-secondary rounded-3">
+                                <i class="fas fa-eye text-primary fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="text-white m-0 fw-bold">100% Visível</h5>
+                                    <small class="text-secondary">Sem AdBlock</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <h3 class="text-white fw-bold">100%</h3>
-                            <small class="text-secondary">Auditável via GPS</small>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 border border-secondary rounded-3">
+                                <i class="fas fa-map-marked-alt text-primary fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="text-white m-0 fw-bold">Geolocalizado</h5>
+                                    <small class="text-secondary">Anuncie por bairro</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -206,16 +242,14 @@
 
     <section id="depoimentos" class="py-5 bg-dark">
         <div class="container py-5 text-center">
-            <h6 class="text-primary fw-bold text-uppercase">Resultados Reais</h6>
-            <h2 class="text-white fw-bold mb-5">O que nossos clientes dizem</h2>
-            
+            <h6 class="text-primary fw-bold text-uppercase">Resultados Comprovados</h6>
+            <h2 class="text-white fw-bold mb-5">Quem anuncia, recomenda</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <video class="testimonial-video" controls>
+                    <video class="testimonial-video" controls poster="static/passageiro.jpg">
                         <source src="static/depoimentos.mp4" type="video/mp4">
                         Seu navegador não suporta vídeos.
                     </video>
-                    <p class="text-muted mt-3">Assista aos relatos de quem já anunciou.</p>
                 </div>
             </div>
         </div>
@@ -224,7 +258,7 @@
     <section id="simulador" class="py-5" style="background: linear-gradient(180deg, #111 0%, #000 100%);">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-5">
+                <div class="col-lg-5 mb-4">
                     <h2 class="text-white fw-bold mb-3">Quanto custa anunciar?</h2>
                     <p class="text-secondary mb-4">Menos do que você imagina. Simule seu investimento e veja o alcance estimado.</p>
                     <ul class="list-unstyled text-white">
@@ -263,11 +297,17 @@
 
     <footer>
         <div class="container text-center">
-            <img src="static/7.png" height="40" class="mb-3 opacity-75">
+            <img src="static/7.png" alt="Publicars Logo" class="logo-circle mb-3">
+            
             <p class="text-secondary small m-0">
                 Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
                 Rua Tamoio, 741 - Canoas/RS | (51) 99300-1678
             </p>
+            <div class="mt-3">
+                <a href="#" class="text-secondary me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-secondary me-3"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-secondary"><i class="fab fa-facebook"></i></a>
+            </div>
         </div>
     </footer>
 
