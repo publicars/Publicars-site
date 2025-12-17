@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicars | Mídia OOH Inteligente e Itinerante</title>
-    <meta name="description" content="A primeira startup de DOOH em carros de aplicativo do Sul do Brasil. Anúncios geolocalizados com alta retenção.">
+    <title>Publicars | Sua Marca em Movimento</title>
+    <meta name="description" content="Mídia DOOH em carros de aplicativo. Alcance seu público em Porto Alegre e região.">
     
     <link rel="icon" type="image/png" href="static/7.png">
     
@@ -15,8 +15,7 @@
 
     <style>
         :root {
-            --primary: #FFD700; /* Amarelo Ouro (destaque do logo Publicars) */
-            --accent: #00C853;  /* Verde para dinheiro/sucesso */
+            --primary: #FFD700; /* Amarelo Publicars */
             --dark-bg: #050505;
             --card-bg: #121212;
             --text-main: #ffffff;
@@ -29,82 +28,65 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 
         /* NAVBAR */
         .navbar {
-            background-color: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.9);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding: 15px 0;
         }
-        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; }
         .nav-link:hover { color: var(--primary) !important; }
-        
-        .btn-login {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            border-radius: 50px;
-            padding: 8px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+        .btn-area-cliente {
+            border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 8px 25px;
+            text-decoration: none; font-weight: bold; transition: 0.3s;
         }
-        .btn-login:hover { background: var(--primary); color: #000; box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        .btn-area-cliente:hover { background: var(--primary); color: #000; }
 
-        /* HERO COM VÍDEO */
-        .hero { position: relative; padding: 180px 0 120px; overflow: hidden; }
-        .video-background-holder {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
+        /* HERO SECTION */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(to bottom, #000, #111);
+            position: relative;
         }
-        .video-background {
-            position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
-            transform: translateX(-50%) translateY(-50%); object-fit: cover; opacity: 0.6;
-        }
-        .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%); z-index: 0;
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-title { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+        .hero-title { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
         .text-highlight { color: var(--primary); }
 
-        .btn-cta {
-            background: var(--primary); color: #000; padding: 15px 40px; border-radius: 50px;
-            font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: none;
-            transition: 0.3s; text-decoration: none; display: inline-block;
+        /* MOLDURA TABLET */
+        .tablet-frame {
+            border: 12px solid #222; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2); background: #000;
+            position: relative; aspect-ratio: 9/16; max-width: 350px; margin: 0 auto;
         }
-        .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); color: #000; }
+        .tablet-frame video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ESTATÍSTICAS (O Pulo do Gato) */
-        .stats-section { background: #111; border-top: 1px solid #222; border-bottom: 1px solid #222; }
-        .stat-card { text-align: center; padding: 30px 20px; }
-        .stat-number { font-size: 3rem; font-weight: 900; color: var(--primary); display: block; }
-        .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #aaa; }
-
-        /* FORMATOS DE ANÚNCIO */
-        .format-card {
-            background: var(--card-bg); border: 1px solid #333; border-radius: 15px;
-            padding: 30px; transition: 0.3s; height: 100%; position: relative; overflow: hidden;
+        /* VIDEO INSTITUCIONAL */
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; overflow: hidden;
+            border-radius: 20px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .format-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .format-badge {
-            position: absolute; top: 20px; right: 20px; background: rgba(255, 215, 0, 0.1);
-            color: var(--primary); padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem;
+        .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* CARDS FOGUETE */
+        .rocket-card {
+            border: none; background: transparent; transition: 0.3s;
+        }
+        .rocket-card img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
+        .rocket-card:hover { transform: translateY(-10px); }
+
+        /* DEPOIMENTOS */
+        .testimonial-video {
+            width: 100%; border-radius: 20px; border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
         }
 
         /* SIMULADOR */
-        .simulador-box {
-            background: #151515; border-radius: 25px; border: 1px solid #333;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        input[type=range] { accent-color: var(--primary); }
+        .simulador-box { background: #151515; padding: 40px; border-radius: 25px; border: 1px solid #333; }
+        input[type=range] { accent-color: var(--primary); width: 100%; }
 
         /* FOOTER */
-        footer { background: #000; padding: 60px 0 20px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; }
-        .social-link { font-size: 1.5rem; color: #fff; margin-right: 20px; transition: 0.3s; }
-        .social-link:hover { color: var(--primary); }
+        footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -119,11 +101,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#diferenciais">Por que Publicars?</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#formatos">Formatos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solucao">A Solução</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
                     <li class="nav-item ms-3">
-                        <a href="https://app.publicars.com.br/login" class="btn-login">Área do Cliente</a>
+                        <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
                     </li>
                 </ul>
             </div>
@@ -131,160 +113,168 @@
     </nav>
 
     <section class="hero d-flex align-items-center">
-        <div class="video-background-holder">
-            <video autoplay muted loop playsinline class="video-background">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-traffic-lights-in-a-city-at-night-4467-large.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
-        </div>
-
-        <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8">
-                    <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2">🚀 Pioneira no Sul do Brasil</span>
-                    <h1 class="hero-title">
-                        Sua Marca Viajando <br>
-                        <span class="text-highlight">Pela Cidade Toda.</span>
-                    </h1>
-                    <p class="lead text-white-50 mb-4" style="max-width: 600px;">
-                        Somos mais do que DOOH. Geramos conexões. Levamos sua marca para dentro de carros de aplicativo (Uber/99) com tecnologia de geolocalização e telas interativas de alta definição.
-                    </p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="#simulador" class="btn-cta">
-                            Simular Campanha
-                        </a>
-                        <a href="https://wa.me/555140636237?text=Quero conhecer a Publicidade Itinerante!" 
-                           class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
-                           <i class="fab fa-whatsapp me-2"></i> Falar com Consultor
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats-section py-5">
         <div class="container">
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="stat-card">
-                        <span class="stat-number">88%</span>
-                        <p class="stat-label mt-2">De Alcance (Ultrapassou a TV)</p>
-                        <small class="text-muted">A Mídia OOH atingiu mais pessoas que a TV Aberta (87%) segundo o Mídia Dados.</small>
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2">🚀 Decole suas Vendas</span>
+                    <h1 class="hero-title">
+                        Quem não é visto <br>
+                        <span class="text-highlight">Não é Lembrado.</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4">
+                        A Publicars transforma carros de aplicativo em vitrines digitais inteligentes. 
+                        Sua marca a 50cm do passageiro, com áudio, vídeo e interação.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-4">
+                            Simular Agora
+                        </a>
+                        <a href="https://wa.me/5551993001678" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                            <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-4 border-start border-end border-secondary">
-                    <div class="stat-card">
-                        <span class="stat-number">15min</span>
-                        <p class="stat-label mt-2">Tempo Médio de Exposição</p>
-                        <small class="text-muted">Seu cliente fica 15 minutos preso no trânsito olhando para sua marca.</small>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-card">
-                        <span class="stat-number">45</span>
-                        <p class="stat-label mt-2">Passageiros/Dia por Carro</p>
-                        <small class="text-muted">Audiência rotativa e qualificada em Porto Alegre e Região.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="formatos" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h6 class="text-primary fw-bold text-uppercase">Nossas Soluções</h6>
-                <h2 class="fw-bold text-white">Escolha o Impacto da sua Marca</h2>
-                <p class="text-muted">Formatos flexíveis com QR Code para conversão imediata.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="format-card">
-                        <span class="format-badge">Custo Baixo</span>
-                        <i class="fas fa-image fa-3x text-white mb-4"></i>
-                        <h4 class="text-white">Estático + QR</h4>
-                        <p class="text-muted small">Banner estático ou animado com 10 segundos de duração.</p>
-                        <hr class="border-secondary">
-                        <p class="text-primary fw-bold m-0">CPV Estimado: R$ 0,09</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="format-card">
-                        <span class="format-badge">Popular</span>
-                        <i class="fas fa-video fa-3x text-white mb-4"></i>
-                        <h4 class="text-white">Vídeo 10s</h4>
-                        <p class="text-muted small">Banner + Vídeo com som e QR Code. Mais dinamismo.</p>
-                        <hr class="border-secondary">
-                        <p class="text-primary fw-bold m-0">CPV Estimado: R$ 0,12</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="format-card">
-                        <i class="fas fa-stopwatch fa-3x text-white mb-4"></i>
-                        <h4 class="text-white">Longo 15s</h4>
-                        <p class="text-muted small">Maior tempo de exposição para leitura e fixação.</p>
-                        <hr class="border-secondary">
-                        <p class="text-primary fw-bold m-0">CPV Estimado: R$ 0,11</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="format-card" style="border-color: var(--primary);">
-                        <span class="format-badge bg-primary text-black">Premium</span>
-                        <i class="fas fa-film fa-3x text-primary mb-4"></i>
-                        <h4 class="text-white">Vídeo Max 15s</h4>
-                        <p class="text-muted small">A experiência completa. Vídeo longo + QR Code de alta conversão.</p>
-                        <hr class="border-secondary">
-                        <p class="text-primary fw-bold m-0">CPV Estimado: R$ 0,15</p>
+                <div class="col-lg-5 text-center">
+                    <div class="tablet-frame">
+                        <video autoplay muted loop playsinline>
+                            <source src="static/videos/tablet-carro.mp4" type="video/mp4">
+                        </video>
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-75">
+                            <small class="text-white fw-bold">📍 Veículo Rastreado 24h</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="simulador" class="py-5 bg-black">
+    <section id="solucao" class="py-5 bg-black">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <h6 class="text-primary fw-bold text-uppercase">Auditoria e Transparência</h6>
-                    <h2 class="fw-bold text-white mb-4">Seu investimento rende mais</h2>
-                    <p class="text-muted fs-5 mb-4">
-                        Diferente do panfleto que vai pro lixo, aqui você paga por visualização comprovada.
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="video-wrapper">
+                        <video controls poster="static/images/passageiro.jpg">
+                            <source src="static/videos/institucional.webm" type="video/webm">
+                            <source src="static/videos/institucional.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <h6 class="text-primary fw-bold text-uppercase">Somos a Publicars</h6>
+                    <h2 class="text-white fw-bold mb-3">Conexão real com seu público</h2>
+                    <p class="text-secondary">
+                        Não somos apenas telas. Somos uma plataforma de inteligência. Nossos passageiros não pulam o anúncio. 
+                        Eles interagem, escaneiam QR Codes e consomem conteúdo de qualidade enquanto se deslocam.
                     </p>
-                    <ul class="list-unstyled text-white lh-lg">
-                        <li><i class="fas fa-check text-primary me-2"></i> Relatórios auditáveis com GPS</li>
-                        <li><i class="fas fa-check text-primary me-2"></i> Segmentação por Bairro</li>
-                        <li><i class="fas fa-check text-primary me-2"></i> Troca de criativos ilimitada</li>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <h3 class="text-white fw-bold">88%</h3>
+                            <small class="text-secondary">Penetração OOH</small>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-white fw-bold">100%</h3>
+                            <small class="text-secondary">Auditável via GPS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="rocket-card">
+                        <img src="static/images/foguete-1.jpg" class="img-fluid w-100" alt="Não fique para trás">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="rocket-card">
+                        <img src="static/images/foguete-2.jpg" class="img-fluid w-100" alt="Invista para ser lembrado">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-5 bg-dark">
+        <div class="container py-5 text-center">
+            <h6 class="text-primary fw-bold text-uppercase">Resultados Reais</h6>
+            <h2 class="text-white fw-bold mb-5">O que nossos clientes dizem</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <video class="testimonial-video" controls>
+                        <source src="static/videos/depoimentos.mp4" type="video/mp4">
+                    </video>
+                    <p class="text-muted mt-3">Assista aos relatos de quem já anunciou.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="text-white fw-bold">Entretenimento que Retém</h2>
+                <p class="text-secondary">O passageiro assiste porque gosta. Seu anúncio aparece entre conteúdos incríveis.</p>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="card bg-black border-secondary">
+                        <video src="static/videos/receitas.mp4" autoplay muted loop class="card-img-top"></video>
+                        <div class="card-body">
+                            <h5 class="text-white h6 mb-0"><i class="fas fa-utensils text-warning me-2"></i>Minuto Receita</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-black border-secondary">
+                        <video src="static/videos/aventura.mp4" autoplay muted loop class="card-img-top"></video>
+                        <div class="card-body">
+                            <h5 class="text-white h6 mb-0"><i class="fas fa-mountain text-warning me-2"></i>Minuto Aventura</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulador" class="py-5" style="background: linear-gradient(180deg, #111 0%, #000 100%);">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <h2 class="text-white fw-bold mb-3">Quanto custa anunciar?</h2>
+                    <p class="text-secondary mb-4">Menos do que você imagina. Simule seu investimento e veja o alcance estimado.</p>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Custo por View a partir de R$ 0,10</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Segmentação por Bairro</li>
                     </ul>
                 </div>
-
                 <div class="col-lg-6 offset-lg-1">
-                    <div class="simulador-box p-5">
-                        <label class="text-white fw-bold mb-2">Quanto você quer investir?</label>
-                        <h2 class="text-primary fw-bold display-4 mb-4" id="valorDisplay">R$ 500,00</h2>
+                    <div class="simulador-box">
+                        <label class="text-white fw-bold mb-2">Investimento Mensal:</label>
+                        <h2 class="text-primary display-4 fw-bold mb-4" id="valorDisplay">R$ 500,00</h2>
                         
-                        <input type="range" class="form-range mb-4" min="200" max="5000" step="50" value="500" id="investimentoRange">
+                        <input type="range" min="300" max="5000" step="100" value="500" id="investimentoRange">
                         
-                        <div class="row text-center mt-4">
+                        <div class="row mt-4 text-center">
                             <div class="col-6 border-end border-secondary">
-                                <small class="text-muted text-uppercase fw-bold">Impactos (Views)</small>
-                                <h3 class="text-white fw-bold mt-2" id="viewsDisplay">5.000</h3>
+                                <small class="text-secondary fw-bold text-uppercase">Views Estimadas</small>
+                                <h3 class="text-white fw-bold mt-1" id="viewsDisplay">5.000</h3>
                             </div>
                             <div class="col-6">
-                                <small class="text-muted text-uppercase fw-bold">CPV Médio</small>
-                                <h3 class="text-white fw-bold mt-2">R$ 0,10*</h3>
+                                <small class="text-secondary fw-bold text-uppercase">Impactos/Dia</small>
+                                <h3 class="text-white fw-bold mt-1" id="dailyDisplay">166</h3>
                             </div>
                         </div>
 
-                        <div class="d-grid mt-5">
+                        <div class="d-grid mt-4">
                             <a href="#" id="btnWhatsappSimulador" class="btn btn-success btn-lg rounded-pill fw-bold py-3">
-                                <i class="fab fa-whatsapp me-2"></i> Contratar Campanha
+                                <i class="fab fa-whatsapp me-2"></i> Quero Anunciar
                             </a>
                         </div>
-                        <p class="text-center text-muted mt-3" style="font-size: 0.7rem;">
-                            *Cálculo baseada na média dos formatos (R$ 0,10). Valores variam de R$ 0,09 a R$ 0,15 conforme formato escolhido.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -292,64 +282,39 @@
     </section>
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="static/7.png" alt="Publicars" height="50" class="mb-3" style="filter: brightness(100%);">
-                    <p class="small">
-                        Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
-                        CNPJ: 46.671.167/0001-85
-                    </p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">Contato</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Rua Tamoio, 741 - Niterói, Canoas/RS</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> (51) 4063-6237</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> comercial@publicars.com.br</li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4 text-md-end">
-                    <h5 class="text-white mb-3">Siga-nos</h5>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-            <div class="row mt-4 pt-4 border-top border-secondary text-center">
-                <div class="col-12">
-                    <p class="m-0 small">© 2023-2025 Publicars. Todos os direitos reservados.</p>
-                </div>
-            </div>
+        <div class="container text-center">
+            <img src="static/7.png" height="40" class="mb-3 opacity-75">
+            <p class="text-secondary small m-0">
+                Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
+                Rua Tamoio, 741 - Canoas/RS | (51) 99300-1678
+            </p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const range = document.getElementById('investimentoRange');
-            const valorDisplay = document.getElementById('valorDisplay');
-            const viewsDisplay = document.getElementById('viewsDisplay');
-            const btnWhatsapp = document.getElementById('btnWhatsappSimulador');
+        const range = document.getElementById('investimentoRange');
+        const valorDisplay = document.getElementById('valorDisplay');
+        const viewsDisplay = document.getElementById('viewsDisplay');
+        const dailyDisplay = document.getElementById('dailyDisplay');
+        const btnWhatsapp = document.getElementById('btnWhatsappSimulador');
+        const CPV = 0.10; 
 
-            // Preço médio base conforme PDF (Média entre 0.09 e 0.12)
-            const cpv = 0.10;
+        function updateSimulador() {
+            let valor = parseFloat(range.value);
+            let views = Math.floor(valor / CPV);
+            let daily = Math.floor(views / 30);
 
-            function updateCalculator() {
-                let valor = parseFloat(range.value);
-                let views = Math.floor(valor / cpv);
+            valorDisplay.innerText = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            viewsDisplay.innerText = views.toLocaleString('pt-BR');
+            dailyDisplay.innerText = daily.toLocaleString('pt-BR');
 
-                valorDisplay.innerText = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                viewsDisplay.innerText = views.toLocaleString('pt-BR');
+            const msg = `Olá! Simulei R$ ${valor} no site e quero anunciar na Publicars!`;
+            btnWhatsapp.href = `https://wa.me/5551993001678?text=${encodeURIComponent(msg)}`;
+        }
 
-                const msg = `Olá! Vi no site da Publicars que com R$ ${valor} posso ter cerca de ${views.toLocaleString('pt-BR')} visualizações. Gostaria de saber mais sobre os formatos!`;
-                btnWhatsapp.href = `https://wa.me/555140636237?text=${encodeURIComponent(msg)}`;
-            }
-
-            range.addEventListener('input', updateCalculator);
-            updateCalculator(); // Iniciar
-        });
+        range.addEventListener('input', updateSimulador);
+        updateSimulador();
     </script>
 </body>
 </html>
