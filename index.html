@@ -20,7 +20,7 @@
             --text-main: #ffffff;
             --danger: #ff4444;
             --success: #00C851;
-            --text-light: #e0e0e0; /* Cor nova para textos descritivos */
+            --text-light: #e0e0e0;
         }
 
         body {
@@ -32,9 +32,9 @@
 
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         
-        /* CORREÇÃO DE LEITURA (TEXTOS CLAROS) */
-        .text-readable { color: var(--text-light) !important; font-size: 0.95rem; }
-        .text-white-50 { color: rgba(255,255,255,0.7) !important; }
+        /* TIPOGRAFIA AUMENTADA */
+        .text-readable { color: var(--text-light) !important; font-size: 1.1rem; }
+        .text-white-50 { color: rgba(255,255,255,0.8) !important; }
 
         /* NAVBAR */
         .navbar {
@@ -42,15 +42,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding: 10px 0;
         }
-        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; transition: 0.3s; }
+        .nav-link { color: #fff !important; font-weight: 600; margin: 0 10px; transition: 0.3s; font-size: 1.1rem; }
         .nav-link:hover { color: var(--primary) !important; }
         
         .logo-circle {
             background-color: #ffffff;
             border-radius: 50%;
             padding: 5px;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
             transition: 0.3s;
@@ -58,7 +58,7 @@
         .logo-circle:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
 
         .btn-area-cliente {
-            border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 8px 25px;
+            border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 10px 30px;
             text-decoration: none; font-weight: bold; transition: 0.3s;
         }
         .btn-area-cliente:hover { background: var(--primary); color: #000; }
@@ -69,7 +69,7 @@
             background: radial-gradient(circle at top right, #1a1a1a 0%, #000 100%);
             position: relative;
         }
-        .hero-title { font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
         .text-highlight { color: var(--primary); }
 
         .video-intro-wrapper {
@@ -85,7 +85,7 @@
         .tablet-frame {
             border: 12px solid #222; border-radius: 20px; overflow: hidden;
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.1); background: #000;
-            position: relative; aspect-ratio: 9/16; max-width: 300px; margin: 0 auto;
+            position: relative; aspect-ratio: 9/16; max-width: 350px; margin: 0 auto;
         }
         .tablet-frame video { width: 100%; height: 100%; object-fit: cover; }
 
@@ -97,51 +97,57 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* COMPARATIVO - NOVO LAYOUT VISÍVEL */
+        /* COMPARATIVO - AJUSTADO E CENTRALIZADO */
         .card-compare {
-            border-radius: 20px; padding: 25px; position: relative; overflow: hidden;
-            transition: 0.3s; border: 1px solid #333; margin-bottom: 20px;
+            border-radius: 25px; padding: 35px; position: relative; overflow: hidden;
+            transition: 0.3s; border: 1px solid #333; margin-bottom: 30px;
         }
         
         /* Cartões Ruins (Esquerda) */
         .card-compare.bad { 
             background: linear-gradient(145deg, #121212, #1a0505); 
-            border-left: 5px solid var(--danger);
+            border-left: 8px solid var(--danger);
             opacity: 0.9;
+            text-align: center; /* CENTRALIZADO */
         }
-        .card-compare.bad:hover { opacity: 1; transform: translateX(5px); }
+        .card-compare.bad:hover { opacity: 1; transform: scale(1.02); }
 
         /* Cartão Vencedor (Direita) */
         .card-compare.good { 
             background: linear-gradient(180deg, #051a05, #000); 
-            border: 2px solid var(--primary); 
-            box-shadow: 0 0 50px rgba(0, 200, 83, 0.15); 
+            border: 3px solid var(--primary); 
+            box-shadow: 0 0 60px rgba(0, 200, 83, 0.2); 
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: sticky; /* Efeito de acompanhar a rolagem no PC */
+            text-align: center; /* CENTRALIZADO */
+            position: sticky;
             top: 100px;
         }
         
-        .price-tag { font-size: 2.2rem; font-weight: 900; margin: 10px 0; }
-        .list-check li { margin-bottom: 10px; font-size: 1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
-        .list-check li i { margin-top: 5px; min-width: 25px; }
+        .price-tag { font-size: 3rem; font-weight: 900; margin: 15px 0; letter-spacing: -1px; }
+        .card-compare.bad h3 { font-size: 2rem; }
+        
+        .list-check { text-align: left; display: inline-block; margin-top: 15px; }
+        .list-check li { margin-bottom: 15px; font-size: 1.1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
+        .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
         /* SIMULADOR */
-        .simulador-box { background: #151515; padding: 40px; border-radius: 25px; border: 1px solid #333; }
-        input[type=range] { accent-color: var(--primary); width: 100%; cursor: pointer; }
-        .plan-badge { background: #333; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .simulador-box { background: #151515; padding: 50px; border-radius: 30px; border: 1px solid #333; }
+        input[type=range] { accent-color: var(--primary); width: 100%; cursor: pointer; height: 10px; }
+        .plan-badge { background: #333; color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
         /* FOOTER */
-        footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
+        footer { background: #000; padding: 80px 0; border-top: 1px solid #222; }
 
         @media (max-width: 991px) {
             .hero { padding-top: 120px; text-align: center; }
             .hero-title { font-size: 2.5rem; }
             .d-flex.gap-3 { justify-content: center; }
-            .order-mobile { order: -1; margin-bottom: 30px; }
-            .card-compare.good { position: relative; top: 0; margin-top: 20px; height: auto; }
+            .order-mobile { order: -1; margin-bottom: 40px; }
+            .card-compare.good { position: relative; top: 0; margin-top: 30px; height: auto; }
+            .price-tag { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -161,9 +167,9 @@
                     <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#simulador">Planos</a></li>
                     <li class="nav-item">
-                        <a class="nav-link text-warning fw-bold" href="motorista.html">Seja Parceiro</a>
+                        <a class="nav-link text-warning fw-bold border border-warning rounded-pill px-3 mx-2" href="motorista.html">Seja Parceiro</a>
                     </li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
                         <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
                     </li>
                 </ul>
@@ -175,22 +181,22 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2">
+                    <span class="badge bg-warning text-dark mb-4 fw-bold px-3 py-2 fs-6">
                         <i class="fas fa-play me-2"></i> Mídia Inteligente e Acessível
                     </span>
                     <h1 class="hero-title">
                         Conecte sua Marca <br>
                         <span class="text-highlight">Em Movimento.</span>
                     </h1>
-                    <p class="text-readable fs-5 mb-4">
+                    <p class="text-readable mb-5 fs-4">
                         Transformamos carros de aplicativo em vitrines digitais. 
-                        Planos a partir de R$ 125,00. Muito mais barato e eficiente que as mídias antigas.
+                        Planos a partir de R$ 125,00. Muito mais barato e eficiente que panfletagem.
                     </p>
                     <div class="d-flex gap-3">
-                        <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-4">
+                        <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-5 py-3 fs-5">
                             Ver Planos
                         </a>
-                        <a href="https://wa.me/5551993001678" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                        <a href="https://wa.me/5551993001678" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fs-5">
                             <i class="fab fa-whatsapp me-2"></i> Falar Conosco
                         </a>
                     </div>
@@ -220,28 +226,28 @@
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1">
-                    <h6 class="text-primary fw-bold text-uppercase">Tecnologia Embarcada</h6>
-                    <h2 class="text-white fw-bold mb-4">Seu anúncio na mão do passageiro</h2>
-                    <p class="text-readable fs-5">
+                    <h6 class="text-primary fw-bold text-uppercase fs-5">Tecnologia Embarcada</h6>
+                    <h2 class="text-white fw-bold mb-4 display-5">Seu anúncio na mão do passageiro</h2>
+                    <p class="text-readable fs-5 mb-5">
                         Posicionamos tablets de alta definição no encosto de cabeça dos carros. 
                         O passageiro interage, assiste ao conteúdo e escaneia seu QR Code durante toda a viagem.
                     </p>
-                    <div class="row mt-4 g-3">
+                    <div class="row mt-4 g-4">
                         <div class="col-md-6">
-                            <div class="d-flex align-items-center p-3 border border-secondary rounded-3">
-                                <i class="fas fa-users text-primary fa-2x me-3"></i>
+                            <div class="d-flex align-items-center p-4 border border-secondary rounded-4 bg-dark">
+                                <i class="fas fa-users text-primary fa-3x me-4"></i>
                                 <div>
-                                    <h5 class="text-white m-0 fw-bold">30 a 45 Pessoas</h5>
-                                    <small class="text-white-50">Audiência Diária por Carro</small>
+                                    <h4 class="text-white m-0 fw-bold">30 a 45</h4>
+                                    <small class="text-white-50 fs-6">Pessoas por Dia/Carro</small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="d-flex align-items-center p-3 border border-secondary rounded-3">
-                                <i class="fas fa-map-marked-alt text-primary fa-2x me-3"></i>
+                            <div class="d-flex align-items-center p-4 border border-secondary rounded-4 bg-dark">
+                                <i class="fas fa-map-marked-alt text-primary fa-3x me-4"></i>
                                 <div>
-                                    <h5 class="text-white m-0 fw-bold">Geolocalizado</h5>
-                                    <small class="text-white-50">Anuncie por bairro</small>
+                                    <h4 class="text-white m-0 fw-bold">Geolocalizado</h4>
+                                    <small class="text-white-50 fs-6">Anuncie por bairro</small>
                                 </div>
                             </div>
                         </div>
@@ -271,63 +277,51 @@
     <section id="comparativo" class="py-5" style="background: #111;">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h6 class="text-secondary fw-bold text-uppercase">A Verdade Sobre o Custo</h6>
-                <h2 class="text-white fw-bold display-5">A Batalha das Mídias</h2>
-                <p class="text-readable mt-2">Veja lado a lado por que investir em tecnologia é mais barato.</p>
+                <h6 class="text-secondary fw-bold text-uppercase fs-5">A Verdade Sobre o Custo</h6>
+                <h2 class="text-white fw-bold display-4">A Batalha das Mídias</h2>
+                <p class="text-readable mt-3 fs-5">Veja lado a lado por que investir em tecnologia é mais barato.</p>
             </div>
 
             <div class="row">
                 <div class="col-lg-6">
                     
                     <div class="card-compare bad">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h3 class="text-white fw-bold mb-0">1.000 Panfletos</h3>
-                                <small class="text-danger fw-bold">MÍDIA DE ALTO RISCO</small>
-                            </div>
-                            <i class="fas fa-trash-alt fa-2x text-danger opacity-50"></i>
-                        </div>
-                        <div class="price-tag text-white">~R$ 380,00 <span class="fs-6 text-readable fw-normal">/ação única</span></div>
-                        <ul class="list-check ps-0">
-                            <li><i class="fas fa-times text-danger me-2"></i> Impressão e Arte (~R$ 230)</li>
-                            <li><i class="fas fa-times text-danger me-2"></i> Diária Entregador (R$ 150)</li>
-                            <li><i class="fas fa-ban text-warning me-2"></i> 80% vai direto pro lixo</li>
-                            <li><i class="fas fa-cloud-rain text-warning me-2"></i> Chuva = Dinheiro perdido</li>
-                            <li class="fw-bold text-white"><i class="fas fa-gavel text-danger me-2"></i> Risco Trabalhista e Multas</li>
+                        <div class="badge bg-danger mb-3 fs-6">RISCO ALTO</div>
+                        <h3 class="text-white fw-bold">1.000 Panfletos</h3>
+                        <div class="price-tag text-white">~R$ 380 <span class="fs-6 text-readable fw-normal">/ação única</span></div>
+                        <hr class="border-secondary w-50 mx-auto my-4">
+                        <ul class="list-check">
+                            <li><i class="fas fa-times text-danger me-3"></i> Impressão e Arte: ~R$ 230</li>
+                            <li><i class="fas fa-times text-danger me-3"></i> Diária Entregador: R$ 150</li>
+                            <li><i class="fas fa-trash text-warning me-3"></i> 80% vai direto pro lixo</li>
+                            <li><i class="fas fa-cloud-rain text-warning me-3"></i> Chuva = Dinheiro perdido</li>
+                            <li class="fw-bold text-white"><i class="fas fa-gavel text-danger me-3"></i> Risco Trabalhista e Multas</li>
                         </ul>
                     </div>
 
                     <div class="card-compare bad">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h3 class="text-white fw-bold mb-0">Outdoor Estático</h3>
-                                <small class="text-danger fw-bold">CARO E PARADO</small>
-                            </div>
-                            <i class="fas fa-image fa-2x text-danger opacity-50"></i>
-                        </div>
-                        <div class="price-tag text-white">~R$ 1.500,00 <span class="fs-6 text-readable fw-normal">/14 dias</span></div>
-                        <ul class="list-check ps-0">
-                            <li><i class="fas fa-times text-danger me-2"></i> Custo alto de produção (Lona)</li>
-                            <li><i class="fas fa-map-marker-alt text-warning me-2"></i> Fixo em apenas um lugar</li>
-                            <li><i class="fas fa-sun text-warning me-2"></i> Desbota com sol e chuva</li>
-                            <li><i class="fas fa-eye-slash text-danger me-2"></i> Impossível medir quem viu</li>
+                        <div class="badge bg-danger mb-3 fs-6">CUSTO ALTO</div>
+                        <h3 class="text-white fw-bold">Outdoor Estático</h3>
+                        <div class="price-tag text-white">~R$ 1.500 <span class="fs-6 text-readable fw-normal">/14 dias</span></div>
+                        <hr class="border-secondary w-50 mx-auto my-4">
+                        <ul class="list-check">
+                            <li><i class="fas fa-times text-danger me-3"></i> Custo altíssimo de produção (Lona)</li>
+                            <li><i class="fas fa-map-marker-alt text-warning me-3"></i> Fixo em apenas um lugar</li>
+                            <li><i class="fas fa-sun text-warning me-3"></i> Desbota com sol e chuva</li>
+                            <li><i class="fas fa-eye-slash text-danger me-3"></i> Impossível medir quem viu</li>
                         </ul>
                     </div>
 
                     <div class="card-compare bad">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h3 class="text-white fw-bold mb-0">Rádio Local</h3>
-                                <small class="text-danger fw-bold">SEM VISUAL</small>
-                            </div>
-                            <i class="fas fa-microphone-slash fa-2x text-danger opacity-50"></i>
-                        </div>
-                        <div class="price-tag text-white">~R$ 900,00 <span class="fs-6 text-readable fw-normal">/pacote</span></div>
-                        <ul class="list-check ps-0">
-                            <li><i class="fas fa-times text-danger me-2"></i> Ninguém anota telefone dirigindo</li>
-                            <li><i class="fas fa-image text-danger me-2"></i> Não mostra seu produto (cegueira)</li>
-                            <li><i class="fas fa-stopwatch text-warning me-2"></i> Dura 30 segundos e some</li>
-                            <li><i class="fas fa-chart-bar text-danger me-2"></i> Sem métricas exatas</li>
+                        <div class="badge bg-danger mb-3 fs-6">SEM VISUAL</div>
+                        <h3 class="text-white fw-bold">Rádio Local</h3>
+                        <div class="price-tag text-white">~R$ 900 <span class="fs-6 text-readable fw-normal">/pacote</span></div>
+                        <hr class="border-secondary w-50 mx-auto my-4">
+                        <ul class="list-check">
+                            <li><i class="fas fa-times text-danger me-3"></i> Ninguém anota telefone dirigindo</li>
+                            <li><i class="fas fa-image text-danger me-3"></i> Não mostra seu produto (cegueira)</li>
+                            <li><i class="fas fa-stopwatch text-warning me-3"></i> Dura 30 segundos e some</li>
+                            <li><i class="fas fa-chart-bar text-danger me-3"></i> Sem métricas exatas</li>
                         </ul>
                     </div>
 
@@ -335,30 +329,30 @@
 
                 <div class="col-lg-6">
                     <div class="card-compare good">
-                        <div class="text-center mb-4">
-                            <span class="badge bg-success px-3 py-2 fs-6 mb-2">A MELHOR ESCOLHA</span>
-                            <h2 class="text-white fw-bold display-6">Plano Start Publicars</h2>
-                            <p class="text-readable">Tecnologia, vídeo e garantia de entrega.</p>
+                        <div class="mb-4">
+                            <span class="badge bg-success px-4 py-2 fs-6 mb-3 rounded-pill shadow">A MELHOR ESCOLHA</span>
+                            <h2 class="text-white fw-bold display-5">Plano Start Publicars</h2>
+                            <p class="text-readable fs-5">Tecnologia, vídeo e garantia de entrega.</p>
                         </div>
                         
-                        <div class="text-center bg-black rounded-4 py-3 border border-secondary mb-4">
-                            <span class="text-white-50 text-uppercase small ls-1">INVESTIMENTO MENSAL</span>
-                            <div class="display-3 fw-bold text-primary">R$ 125,00</div>
-                            <span class="text-success fw-bold"><i class="fas fa-check me-1"></i> Mais barato que todos!</span>
+                        <div class="bg-black rounded-5 py-4 border border-secondary mb-5 mx-2">
+                            <span class="text-white-50 text-uppercase small ls-1 fw-bold">INVESTIMENTO MENSAL</span>
+                            <div class="price-tag text-primary my-2">R$ 125,00</div>
+                            <span class="text-success fw-bold fs-5"><i class="fas fa-check me-2"></i>Mais barato que todos!</span>
                         </div>
                         
-                        <h5 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Por que você ganha?</h5>
-                        <ul class="list-check ps-0">
-                            <li class="text-white"><i class="fas fa-check-circle text-primary me-2"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
-                            <li class="text-white"><i class="fas fa-video text-primary me-2"></i> Anúncio com Vídeo, Som e Imagem</li>
-                            <li class="text-white"><i class="fas fa-qrcode text-primary me-2"></i> <strong>Interativo:</strong> QR Code para venda direta</li>
-                            <li class="text-white"><i class="fas fa-map-marked-alt text-primary me-2"></i> <strong>GPS:</strong> Vai onde o cliente está (Bairros)</li>
-                            <li class="text-white"><i class="fas fa-file-contract text-primary me-2"></i> Relatório Auditável (Sem "achismo")</li>
-                            <li class="text-white"><i class="fas fa-shield-alt text-primary me-2"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
+                        <h5 class="text-white fw-bold mb-4 border-bottom border-secondary pb-3 mx-auto w-75">Por que você ganha?</h5>
+                        <ul class="list-check mx-auto">
+                            <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
+                            <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo, Som e Imagem</li>
+                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong> QR Code para venda</li>
+                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong> Vai onde o cliente está</li>
+                            <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (Sem "achismo")</li>
+                            <li class="text-white fs-5"><i class="fas fa-shield-alt text-primary me-3"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
                         </ul>
 
-                        <div class="text-center mt-auto pt-4">
-                            <a href="#simulador" class="btn btn-success btn-lg rounded-pill w-100 fw-bold py-3 shadow-lg">
+                        <div class="mt-auto pt-5">
+                            <a href="#simulador" class="btn btn-success btn-lg rounded-pill w-100 fw-bold py-4 fs-4 shadow-lg">
                                 ESCOLHER O FUTURO AGORA
                             </a>
                         </div>
@@ -368,26 +362,40 @@
         </div>
     </section>
 
+    <section id="depoimentos" class="py-5 bg-dark">
+        <div class="container py-5 text-center">
+            <h6 class="text-primary fw-bold text-uppercase fs-5">Resultados Comprovados</h6>
+            <h2 class="text-white fw-bold mb-5 display-5">Quem anuncia, recomenda</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <video class="testimonial-video" controls poster="static/passageiro.jpg">
+                        <source src="static/depoimentos.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="simulador" class="py-5" style="background: linear-gradient(180deg, #111 0%, #000 100%);">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-4">
-                    <h2 class="text-white fw-bold mb-3">Escolha seu Impacto</h2>
-                    <p class="text-readable mb-4">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="text-white fw-bold mb-3 display-5">Escolha seu Impacto</h2>
+                    <p class="text-readable mb-5 fs-5">
                         Comece pequeno com o Plano Start ou domine a cidade com o Plano Dominador. 
                         Arraste a barra para ver as opções.
                     </p>
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="fas fa-check-circle text-primary me-3 fa-2x"></i>
+                    <div class="d-flex align-items-center mb-4">
+                        <i class="fas fa-check-circle text-primary me-3 fa-3x"></i>
                         <div>
-                            <h6 class="text-white m-0">Preço Fixo</h6>
+                            <h5 class="text-white m-0 fw-bold">Preço Fixo</h5>
                             <small class="text-readable">Sem surpresas no fim do mês</small>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-chart-line text-primary me-3 fa-2x"></i>
+                        <i class="fas fa-chart-line text-primary me-3 fa-3x"></i>
                         <div>
-                            <h6 class="text-white m-0">Escalável</h6>
+                            <h5 class="text-white m-0 fw-bold">Escalável</h5>
                             <small class="text-readable">Aumente a frota quando quiser</small>
                         </div>
                     </div>
@@ -395,35 +403,35 @@
                 
                 <div class="col-lg-6 offset-lg-1">
                     <div class="simulador-box">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <label class="text-white fw-bold">Plano Selecionado:</label>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <label class="text-white fw-bold fs-5">Plano Selecionado:</label>
                             <span class="plan-badge" id="planoNome">START</span>
                         </div>
                         
-                        <h2 class="text-primary display-4 fw-bold mb-4" id="valorDisplay">R$ 125,00</h2>
+                        <h2 class="text-primary fw-bold mb-5 display-3 text-center" id="valorDisplay">R$ 125,00</h2>
                         
-                        <input type="range" min="1" max="4" step="1" value="1" id="planSlider" style="height: 25px;">
+                        <input type="range" min="1" max="4" step="1" value="1" id="planSlider" style="height: 15px;">
                         
-                        <div class="d-flex justify-content-between text-muted small mt-2 px-1">
-                            <span class="text-white-50">Start</span>
-                            <span class="text-white-50">Aceleração</span>
-                            <span class="text-white-50">Turbo</span>
-                            <span class="text-white-50">Dominador</span>
+                        <div class="d-flex justify-content-between text-white-50 small mt-3 px-1 fw-bold text-uppercase">
+                            <span>Start</span>
+                            <span>Aceleração</span>
+                            <span>Turbo</span>
+                            <span>Dominador</span>
                         </div>
                         
-                        <div class="row mt-5 text-center bg-black rounded-4 py-3 mx-0 border border-secondary">
+                        <div class="row mt-5 text-center bg-black rounded-4 py-4 mx-0 border border-secondary g-0">
                             <div class="col-6 border-end border-secondary">
                                 <small class="text-white-50 fw-bold text-uppercase">Frota</small>
-                                <h3 class="text-white fw-bold mt-1" id="carrosDisplay">3 Carros</h3>
+                                <h3 class="text-white fw-bold mt-2" id="carrosDisplay">3 Carros</h3>
                             </div>
                             <div class="col-6">
                                 <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal</small>
-                                <h3 class="text-white fw-bold mt-1" id="viewsDisplay">3.300</h3>
+                                <h3 class="text-white fw-bold mt-2" id="viewsDisplay">3.300</h3>
                             </div>
                         </div>
 
-                        <div class="d-grid mt-4">
-                            <a href="#" id="btnWhatsappSimulador" class="btn btn-success btn-lg rounded-pill fw-bold py-3">
+                        <div class="d-grid mt-5">
+                            <a href="#" id="btnWhatsappSimulador" class="btn btn-success btn-lg rounded-pill fw-bold py-4 fs-4 shadow">
                                 <i class="fab fa-whatsapp me-2"></i> Contratar Agora
                             </a>
                         </div>
@@ -436,15 +444,15 @@
 
     <footer>
         <div class="container text-center">
-            <img src="static/7.png" alt="Publicars Logo" class="logo-circle mb-3">
-            <p class="text-readable small m-0">
+            <img src="static/7.png" alt="Publicars Logo" class="logo-circle mb-4">
+            <p class="text-readable small m-0 mb-3">
                 Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
                 Rua Tamoio, 741 - Canoas/RS | (51) 99300-1678
             </p>
-            <div class="mt-3">
-                <a href="#" class="text-white-50 me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white-50 me-3"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-white-50"><i class="fab fa-facebook"></i></a>
+            <div class="mt-4">
+                <a href="#" class="text-white-50 me-4 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white-50 me-4 fs-4"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white-50 fs-4"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
