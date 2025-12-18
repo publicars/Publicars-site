@@ -92,22 +92,27 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* COMPARATIVO */
+        /* COMPARATIVO COM ABAS */
+        .nav-pills .nav-link {
+            color: #888; background: #111; border: 1px solid #333; margin-right: 10px; border-radius: 50px; padding: 10px 25px; font-weight: bold;
+        }
+        .nav-pills .nav-link.active {
+            background: var(--danger); color: #fff; border-color: var(--danger); box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+        }
         .card-compare {
             border-radius: 20px; padding: 30px; height: 100%; position: relative; overflow: hidden;
             transition: 0.3s; border: 1px solid #333;
         }
-        .card-compare.bad { background: linear-gradient(145deg, #1a1a1a, #2a0000); border-color: #550000; }
-        .card-compare.good { background: linear-gradient(145deg, #1a1a1a, #001a00); border-color: var(--primary); transform: scale(1.02); box-shadow: 0 10px 40px rgba(0,200,83,0.1); z-index: 2; }
+        .card-compare.bad { background: linear-gradient(145deg, #1a1a1a, #2a0000); border-color: #550000; min-height: 450px; }
+        .card-compare.good { background: linear-gradient(145deg, #1a1a1a, #001a00); border-color: var(--primary); transform: scale(1.02); box-shadow: 0 10px 40px rgba(0,200,83,0.1); z-index: 2; min-height: 450px; }
         
         .price-tag { font-size: 2.5rem; font-weight: 900; margin: 15px 0; }
-        .list-check li { margin-bottom: 10px; font-size: 0.9rem; list-style: none; }
+        .list-check li { margin-bottom: 12px; font-size: 0.95rem; list-style: none; display: flex; align-items: flex-start; }
+        .list-check li i { margin-top: 4px; }
         
         /* SIMULADOR */
         .simulador-box { background: #151515; padding: 40px; border-radius: 25px; border: 1px solid #333; }
         input[type=range] { accent-color: var(--primary); width: 100%; cursor: pointer; }
-        
-        /* PLANOS BADGE */
         .plan-badge { background: #333; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* FOOTER */
@@ -119,6 +124,8 @@
             .d-flex.gap-3 { justify-content: center; }
             .order-mobile { order: -1; margin-bottom: 30px; }
             .card-compare.good { transform: scale(1); margin-top: 20px; }
+            .nav-pills { justify-content: center; margin-bottom: 20px; }
+            .nav-pills .nav-link { margin-bottom: 10px; }
         }
     </style>
 </head>
@@ -136,7 +143,10 @@
                 <ul class="navbar-nav align-items-center mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#solucao">A Solução</a></li>
                     <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#simulador">Planos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-bold" href="motorista.html">Seja Parceiro</a>
+                    </li>
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
                         <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
                     </li>
@@ -158,7 +168,7 @@
                     </h1>
                     <p class="lead text-secondary mb-4">
                         Transformamos carros de aplicativo em vitrines digitais. 
-                        Planos a partir de R$ 125,00. Mais barato e eficiente que panfletagem.
+                        Planos a partir de R$ 125,00. Muito mais barato e eficiente que as mídias antigas.
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-4">
@@ -242,6 +252,111 @@
         </div>
     </section>
 
+    <section id="comparativo" class="py-5" style="background: #111;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-secondary fw-bold text-uppercase">Batalha das Mídias</h6>
+                <h2 class="text-white fw-bold">Veja por que a Publicars vence todas</h2>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5 offset-lg-1">
+                    
+                    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-panfleto-tab" data-bs-toggle="pill" data-bs-target="#pills-panfleto" type="button" role="tab">PANFLETO</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-outdoor-tab" data-bs-toggle="pill" data-bs-target="#pills-outdoor" type="button" role="tab">OUTDOOR</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-radio-tab" data-bs-toggle="pill" data-bs-target="#pills-radio" type="button" role="tab">RÁDIO</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        
+                        <div class="tab-pane fade show active" id="pills-panfleto" role="tabpanel">
+                            <div class="card-compare bad">
+                                <div class="badge bg-danger mb-3">RISCO ALTO</div>
+                                <h3 class="text-white fw-bold">1.000 Panfletos</h3>
+                                <p class="text-muted">A opção mais arriscada de todas.</p>
+                                <div class="price-tag text-white">~R$ 380<span class="fs-6 text-muted fw-normal">/ação</span></div>
+                                <hr class="border-secondary">
+                                <ul class="list-check ps-0 text-white-50">
+                                    <li><i class="fas fa-times text-danger me-2"></i> Impressão + Arte: ~R$ 230</li>
+                                    <li><i class="fas fa-times text-danger me-2"></i> Diária Entregador: R$ 150</li>
+                                    <li><i class="fas fa-trash text-warning me-2"></i> 80% vai direto para o lixo</li>
+                                    <li><i class="fas fa-cloud-rain text-warning me-2"></i> Chuva = Perda Total</li>
+                                    <li><i class="fas fa-gavel text-danger me-2"></i> <strong>Risco Trabalhista e Multas</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-outdoor" role="tabpanel">
+                            <div class="card-compare bad">
+                                <div class="badge bg-danger mb-3">CUSTO ALTO</div>
+                                <h3 class="text-white fw-bold">Outdoor Estático</h3>
+                                <p class="text-muted">Caro e parado no tempo.</p>
+                                <div class="price-tag text-white">~R$ 1.500<span class="fs-6 text-muted fw-normal">/14 dias</span></div>
+                                <hr class="border-secondary">
+                                <ul class="list-check ps-0 text-white-50">
+                                    <li><i class="fas fa-times text-danger me-2"></i> Custo altíssimo de produção (Lona)</li>
+                                    <li><i class="fas fa-map-marker-alt text-danger me-2"></i> Fica parado em um só lugar</li>
+                                    <li><i class="fas fa-sun text-warning me-2"></i> Desbota com o sol e chuva</li>
+                                    <li><i class="fas fa-eye-slash text-warning me-2"></i> Não dá pra medir quem viu</li>
+                                    <li><i class="fas fa-mouse-pointer text-danger me-2"></i> <strong>Não tem clique nem venda direta</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-radio" role="tabpanel">
+                            <div class="card-compare bad">
+                                <div class="badge bg-danger mb-3">SEM VISUAL</div>
+                                <h3 class="text-white fw-bold">Rádio Local</h3>
+                                <p class="text-muted">As palavras voam com o vento.</p>
+                                <div class="price-tag text-white">~R$ 900<span class="fs-6 text-muted fw-normal">/pacote</span></div>
+                                <hr class="border-secondary">
+                                <ul class="list-check ps-0 text-white-50">
+                                    <li><i class="fas fa-times text-danger me-2"></i> Ninguém anota telefone dirigindo</li>
+                                    <li><i class="fas fa-image text-danger me-2"></i> Não mostra seu produto (cegueira)</li>
+                                    <li><i class="fas fa-stopwatch text-warning me-2"></i> Dura só 30 segundos e some</li>
+                                    <li><i class="fas fa-chart-bar text-warning me-2"></i> Impossível calcular ROI exato</li>
+                                    <li><i class="fas fa-volume-mute text-danger me-2"></i> <strong>Jovens não ouvem rádio</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card-compare good">
+                        <div class="badge bg-success mb-3">A SOLUÇÃO IDEAL</div>
+                        <h3 class="text-white fw-bold">Publicars Start</h3>
+                        <p class="text-muted">Tecnologia, vídeo e garantia de entrega.</p>
+                        
+                        <div class="price-tag text-primary">R$ 125,00<span class="fs-6 text-muted fw-normal">/mês</span></div>
+                        <hr class="border-secondary">
+                        
+                        <ul class="list-check ps-0 text-white">
+                            <li><i class="fas fa-check text-success me-2"></i> <strong>Mais barato que todas as opções</strong></li>
+                            <li><i class="fas fa-video text-success me-2"></i> Vídeo, Áudio e Imagem (Alta Definição)</li>
+                            <li><i class="fas fa-qrcode text-success me-2"></i> Interativo (QR Code para Venda)</li>
+                            <li><i class="fas fa-map-marked text-success me-2"></i> Geolocalizado (Vai onde o povo está)</li>
+                            <li><i class="fas fa-file-contract text-success me-2"></i> <strong>Relatório Auditável via GPS</strong></li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#simulador" class="btn btn-success rounded-pill w-100 fw-bold py-3">
+                                ESCOLHER O FUTURO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="depoimentos" class="py-5 bg-dark">
         <div class="container py-5 text-center">
             <h6 class="text-primary fw-bold text-uppercase">Resultados Comprovados</h6>
@@ -251,61 +366,6 @@
                     <video class="testimonial-video" controls poster="static/passageiro.jpg">
                         <source src="static/depoimentos.mp4" type="video/mp4">
                     </video>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="comparativo" class="py-5" style="background: #111;">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h6 class="text-secondary fw-bold text-uppercase">A Verdade Sobre o Custo</h6>
-                <h2 class="text-white fw-bold">Por que gastar mais para ter menos?</h2>
-            </div>
-
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-5 offset-lg-1">
-                    <div class="card-compare bad">
-                        <div class="badge bg-danger mb-3">MÍDIA ANTIGA</div>
-                        <h3 class="text-white fw-bold">1.000 Panfletos</h3>
-                        <p class="text-muted">Alto risco e dinheiro no lixo.</p>
-                        
-                        <div class="price-tag text-white">~R$ 380,00<span class="fs-6 text-muted fw-normal">/ação</span></div>
-                        <hr class="border-secondary">
-                        
-                        <ul class="list-check ps-0 text-white-50">
-                            <li><i class="fas fa-times text-danger me-2"></i> Impressão + Arte: ~R$ 230</li>
-                            <li><i class="fas fa-times text-danger me-2"></i> <strong>Diária Entregador: R$ 150</strong></li>
-                            <li class="mt-3 text-white"><i class="fas fa-exclamation-triangle text-warning me-2"></i> <strong>PROBLEMAS:</strong></li>
-                            <li>• Chuva = Perda Total</li>
-                            <li>• Maioria vai pro lixo sem ler</li>
-                            <li>• <strong>Risco Trabalhista Real</strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-5">
-                    <div class="card-compare good">
-                        <div class="badge bg-success mb-3">PLANO START</div>
-                        <h3 class="text-white fw-bold">3 Carros / Mês</h3>
-                        <p class="text-muted">Tecnologia e garantia de entrega.</p>
-                        
-                        <div class="price-tag text-primary">R$ 125,00<span class="fs-6 text-muted fw-normal">/mês</span></div>
-                        <hr class="border-secondary">
-                        
-                        <ul class="list-check ps-0 text-white">
-                            <li><i class="fas fa-check text-success me-2"></i> <strong>3 Veículos Rodando 30 Dias</strong></li>
-                            <li><i class="fas fa-check text-success me-2"></i> <strong>3x Mais Barato que Panfleto</strong></li>
-                            <li><i class="fas fa-check text-success me-2"></i> +3.300 Visualizações Garantidas</li>
-                            <li class="mt-3 text-white"><i class="fas fa-star text-primary me-2"></i> <strong>VANTAGENS:</strong></li>
-                            <li>• Audiência Cativa e Atenta</li>
-                            <li>• Relatório Auditável (GPS)</li>
-                            <li>• <strong>Zero Risco Jurídico</strong></li>
-                        </ul>
-                        <div class="text-center mt-4">
-                            <a href="#simulador" class="btn btn-success rounded-pill w-100 fw-bold">Começar com R$ 125</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -394,7 +454,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // CONFIGURAÇÃO DOS PLANOS
+        // CONFIGURAÇÃO DOS 4 PLANOS DEFINITIVOS
         const planos = {
             1: { nome: "START", valor: 125, carros: 3, views: "3.300", msg: "Excelente para testar e validar." },
             2: { nome: "ACELERAÇÃO", valor: 299, carros: 10, views: "11.000", msg: "Melhor Custo-Benefício! (R$ 29/carro)" },
