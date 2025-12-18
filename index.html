@@ -32,7 +32,6 @@
 
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         
-        /* TIPOGRAFIA AUMENTADA */
         .text-readable { color: var(--text-light) !important; font-size: 1.1rem; }
         .text-white-50 { color: rgba(255,255,255,0.8) !important; }
 
@@ -97,7 +96,7 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* COMPARATIVO - AJUSTADO E CENTRALIZADO */
+        /* COMPARATIVO - AJUSTADO */
         .card-compare {
             border-radius: 25px; padding: 35px; position: relative; overflow: hidden;
             transition: 0.3s; border: 1px solid #333; margin-bottom: 30px;
@@ -108,26 +107,28 @@
             background: linear-gradient(145deg, #121212, #1a0505); 
             border-left: 8px solid var(--danger);
             opacity: 0.9;
-            text-align: center; /* CENTRALIZADO */
+            text-align: center;
         }
         .card-compare.bad:hover { opacity: 1; transform: scale(1.02); }
 
-        /* Cartão Vencedor (Direita) */
+        /* Cartão Vencedor (Direita) - STICKY FIX */
         .card-compare.good { 
             background: linear-gradient(180deg, #051a05, #000); 
             border: 3px solid var(--primary); 
             box-shadow: 0 0 60px rgba(0, 200, 83, 0.2); 
-            height: 100%;
+            /* Removemos o height:100% para tirar o espaço vazio */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            text-align: center; /* CENTRALIZADO */
+            text-align: center;
+            /* Isso faz o card acompanhar a rolagem */
+            position: -webkit-sticky;
             position: sticky;
-            top: 100px;
+            top: 100px; 
+            z-index: 10;
         }
         
         .price-tag { font-size: 3rem; font-weight: 900; margin: 15px 0; letter-spacing: -1px; }
-        .card-compare.bad h3 { font-size: 2rem; }
         
         .list-check { text-align: left; display: inline-block; margin-top: 15px; }
         .list-check li { margin-bottom: 15px; font-size: 1.1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
@@ -146,8 +147,7 @@
             .hero-title { font-size: 2.5rem; }
             .d-flex.gap-3 { justify-content: center; }
             .order-mobile { order: -1; margin-bottom: 40px; }
-            .card-compare.good { position: relative; top: 0; margin-top: 30px; height: auto; }
-            .price-tag { font-size: 2.5rem; }
+            .card-compare.good { position: relative; top: 0; margin-top: 30px; }
         }
     </style>
 </head>
@@ -282,7 +282,8 @@
                 <p class="text-readable mt-3 fs-5">Veja lado a lado por que investir em tecnologia é mais barato.</p>
             </div>
 
-            <div class="row">
+            <div class="row align-items-start">
+                
                 <div class="col-lg-6">
                     
                     <div class="card-compare bad">
@@ -344,7 +345,7 @@
                         <h5 class="text-white fw-bold mb-4 border-bottom border-secondary pb-3 mx-auto w-75">Por que você ganha?</h5>
                         <ul class="list-check mx-auto">
                             <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
-                            <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo, Som e Imagem</li>
+                            <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo e Imagem</li>
                             <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong> QR Code para venda</li>
                             <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong> Vai onde o cliente está</li>
                             <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (Sem "achismo")</li>
