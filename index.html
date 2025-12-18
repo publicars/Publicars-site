@@ -131,6 +131,21 @@
         .list-check li { margin-bottom: 15px; font-size: 1.1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
         .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
+        /* DEPOIMENTOS CARDS */
+        .testimonial-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .testimonial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .quote-icon { color: var(--primary); font-size: 2rem; margin-bottom: 20px; opacity: 0.5; }
+
         /* SIMULADOR */
         .simulador-box { background: #151515; padding: 50px; border-radius: 30px; border: 1px solid #333; }
         input[type=range] { accent-color: var(--primary); width: 100%; cursor: pointer; height: 10px; }
@@ -352,10 +367,10 @@
                             <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
                             <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo e Imagem</li>
                             
-                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação: Flexibilidade total</strong></li>
-                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes (Visibilidade Extra)</strong></li>
-                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo: QR Code para venda</strong></li>
-                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS: Vai onde o cliente está</strong></li>
+                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong>&nbsp;Flexibilidade total</li>
+                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong>&nbsp;(Visibilidade Extra)</li>
+                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong>&nbsp;QR Code para venda</li>
+                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong>&nbsp;Vai onde o cliente está</li>
                             
                             <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (Sem "achismo")</li>
                             <li class="text-white fs-5"><i class="fas fa-shield-alt text-primary me-3"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
@@ -373,14 +388,53 @@
     </section>
 
     <section id="depoimentos" class="py-5 bg-dark">
-        <div class="container py-5 text-center">
-            <h6 class="text-primary fw-bold text-uppercase fs-5">Resultados Comprovados</h6>
-            <h2 class="text-white fw-bold mb-5 display-5">Quem anuncia, recomenda</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <video class="testimonial-video" controls poster="static/passageiro.jpg">
-                        <source src="static/depoimentos.mp4" type="video/mp4">
-                    </video>
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase fs-5">RESULTADOS REAIS</h6>
+                <h2 class="text-white fw-bold display-5">O que nossos clientes falam</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="text-white fs-5 fst-italic mb-4">"Nossas vendas no ecommerce melhoraram muito depois que anunciei com a Publicars. Recomendo a todos os meus amigos comerciantes"</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="text-primary fw-bold mb-0">LETICIA RODRIGUES</h5>
+                                <small class="text-white-50 fw-bold">R.R ALIMENTOS</small>
+                                <div class="text-secondary small mt-1">CANOAS - RS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="text-white fs-5 fst-italic mb-4">"O consultório já estava bom, mas anunciei na Publicars e só melhorou! Usei o Código QR-CODE e o Whats não para com as notificações de novos clientes."</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="text-primary fw-bold mb-0">LEONARDO GABRIEL</h5>
+                                <small class="text-white-50 fw-bold">DENTISTAS E CIA</small>
+                                <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="text-white fs-5 fst-italic mb-4">"Anunciei na Publicars sem pretensão nenhuma, pois sou autônomo e trabalho como marido de aluguel. Me surpreendi muito, invisto pouco e retorna muito! Obrigado Publicars."</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="text-primary fw-bold mb-0">CÉZAR AUGUSTO</h5>
+                                <small class="text-white-50 fw-bold">MARIDO DE ALUGUEL</small>
+                                <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
