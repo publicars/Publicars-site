@@ -96,12 +96,25 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* COMPARATIVO - FIXADO */
+        /* VIDEO INSTITUCIONAL (NOVA SEÇÃO) */
+        .video-institucional-box {
+            border-radius: 25px;
+            overflow: hidden;
+            border: 4px solid #222;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .video-institucional-box video {
+            width: 100%;
+            display: block;
+        }
+
+        /* COMPARATIVO */
         .card-compare {
             border-radius: 25px; padding: 35px; position: relative; overflow: hidden;
             transition: 0.3s; border: 1px solid #333; margin-bottom: 30px;
         }
-        
         .card-compare.bad { 
             background: linear-gradient(145deg, #121212, #1a0505); 
             border-left: 8px solid var(--danger);
@@ -109,7 +122,7 @@
         }
         .card-compare.bad:hover { opacity: 1; transform: scale(1.02); }
 
-        /* O VENCEDOR (STICKY CORRIGIDO) */
+        /* O VENCEDOR (STICKY) */
         .card-compare.good { 
             background: linear-gradient(180deg, #051a05, #000); 
             border: 3px solid var(--primary); 
@@ -140,10 +153,7 @@
             height: 100%;
             transition: 0.3s;
         }
-        .testimonial-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
+        .testimonial-card:hover { border-color: var(--primary); transform: translateY(-5px); }
         .quote-icon { color: var(--primary); font-size: 2rem; margin-bottom: 20px; opacity: 0.5; }
 
         /* SIMULADOR */
@@ -175,6 +185,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#solucao">A Solução</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#institucional">Quem Somos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#comparativo">Comparativo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#simulador">Planos</a></li>
                     <li class="nav-item">
@@ -285,6 +296,20 @@
         </div>
     </section>
 
+    <section id="institucional" class="py-5" style="background: linear-gradient(180deg, #000 0%, #111 100%);">
+        <div class="container py-5 text-center">
+            <h6 class="text-secondary fw-bold text-uppercase fs-5">MANIFESTO PUBLICARS</h6>
+            <h2 class="text-white fw-bold display-5 mb-5">Veja como geramos conexões reais</h2>
+            
+            <div class="video-institucional-box">
+                <video controls poster="static/7.png">
+                    <source src="static/video-institucional.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+            </div>
+        </div>
+    </section>
+
     <section id="comparativo" class="py-5" style="background: #111;">
         <div class="container py-5">
             <div class="text-center mb-5">
@@ -366,12 +391,10 @@
                         <ul class="list-check mx-auto">
                             <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
                             <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo e Imagem</li>
-                            
                             <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong>&nbsp;Flexibilidade total</li>
                             <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong>&nbsp;(Visibilidade Extra)</li>
                             <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong>&nbsp;QR Code para venda</li>
                             <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong>&nbsp;Vai onde o cliente está</li>
-                            
                             <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (Sem "achismo")</li>
                             <li class="text-white fs-5"><i class="fas fa-shield-alt text-primary me-3"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
                         </ul>
@@ -388,11 +411,9 @@
     </section>
 
     <section id="depoimentos" class="py-5 bg-dark">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h6 class="text-primary fw-bold text-uppercase fs-5">RESULTADOS REAIS</h6>
-                <h2 class="text-white fw-bold display-5">O que nossos clientes falam</h2>
-            </div>
+        <div class="container py-5 text-center">
+            <h6 class="text-primary fw-bold text-uppercase fs-5">RESULTADOS REAIS</h6>
+            <h2 class="text-white fw-bold display-5 mb-5">O que nossos clientes falam</h2>
             
             <div class="row g-4">
                 <div class="col-lg-4">
@@ -408,7 +429,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-4">
                     <div class="testimonial-card">
                         <i class="fas fa-quote-left quote-icon"></i>
@@ -422,7 +442,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-4">
                     <div class="testimonial-card">
                         <i class="fas fa-quote-left quote-icon"></i>
