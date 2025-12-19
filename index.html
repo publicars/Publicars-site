@@ -134,9 +134,10 @@
         .list-check li { margin-bottom: 15px; font-size: 1.1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
         .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
-        /* DEPOIMENTOS CARDS */
+        /* DEPOIMENTOS CARDS - AGORA CENTRALIZADOS */
         .testimonial-card {
             background: #111; border: 1px solid #333; border-radius: 20px; padding: 30px; height: 100%; transition: 0.3s;
+            text-align: center; /* CENTRALIZAÇÃO */
         }
         .testimonial-card:hover { border-color: var(--primary); transform: translateY(-5px); }
         .quote-icon { color: var(--primary); font-size: 2rem; margin-bottom: 20px; opacity: 0.5; }
@@ -150,7 +151,7 @@
         .slider-labels span {
             transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 0.8rem; /* Tamanho ajustado para mobile */
+            font-size: 0.8rem;
         }
         .slider-labels span.active {
             color: var(--primary) !important;
@@ -158,7 +159,7 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        footer { background: #000; padding: 80px 0; border-top: 1px solid #222; }
+        footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
 
         @media (max-width: 991px) {
             .hero { padding-top: 120px; text-align: center; }
@@ -166,7 +167,6 @@
             .d-flex.gap-3 { justify-content: center; }
             .order-mobile { order: -1; margin-bottom: 40px; }
             .card-compare.good { position: relative; top: 0; margin-top: 30px; }
-            /* Ajuste extra para os labels no mobile não grudarem */
             .slider-labels span { font-size: 0.7rem; letter-spacing: 0; }
         }
     </style>
@@ -280,13 +280,8 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="rocket-card">
-                        <img src="static/foguete-1.png" class="img-fluid" alt="Não fique para trás">
-                    </div>
-                </div>
-                <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
                     <div class="rocket-card">
                         <img src="static/foguete-2.png" class="img-fluid" alt="Invista para ser lembrado">
                     </div>
@@ -385,11 +380,11 @@
                         <ul class="list-check mx-auto">
                             <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
                             <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo e Imagem</li>
-                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong>&nbsp;Flexibilidade total</li>
-                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong>&nbsp;(Visibilidade Extra)</li>
-                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong>&nbsp;QR Code para venda</li>
-                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong>&nbsp;Vai onde o cliente está</li>
-                            <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (Sem "achismo")</li>
+                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong> <span class="text-primary fw-bold">Flexibilidade total</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong> <span class="text-primary fw-bold">(Visibilidade Extra)</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong> <span class="text-primary fw-bold">QR Code para venda</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong> <span class="text-primary fw-bold">Vai onde o cliente está</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (<span class="text-primary fw-bold">Sem "achismo"</span>)</li>
                             <li class="text-white fs-5"><i class="fas fa-shield-alt text-primary me-3"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
                         </ul>
 
@@ -413,12 +408,10 @@
                     <div class="testimonial-card">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="text-white fs-5 fst-italic mb-4">"Nossas vendas no ecommerce melhoraram muito depois que anunciei com a Publicars. Recomendo a todos os meus amigos comerciantes"</p>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="text-primary fw-bold mb-0">LETICIA RODRIGUES</h5>
-                                <small class="text-white-50 fw-bold">R.R ALIMENTOS</small>
-                                <div class="text-secondary small mt-1">CANOAS - RS</div>
-                            </div>
+                        <div>
+                            <h5 class="text-primary fw-bold mb-0">LETICIA RODRIGUES</h5>
+                            <small class="text-white-50 fw-bold">R.R ALIMENTOS</small>
+                            <div class="text-secondary small mt-1">CANOAS - RS</div>
                         </div>
                     </div>
                 </div>
@@ -426,12 +419,10 @@
                     <div class="testimonial-card">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="text-white fs-5 fst-italic mb-4">"O consultório já estava bom, mas anunciei na Publicars e só melhorou! Usei o Código QR-CODE e o Whats não para com as notificações de novos clientes."</p>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="text-primary fw-bold mb-0">LEONARDO GABRIEL</h5>
-                                <small class="text-white-50 fw-bold">DENTISTAS E CIA</small>
-                                <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
-                            </div>
+                        <div>
+                            <h5 class="text-primary fw-bold mb-0">LEONARDO GABRIEL</h5>
+                            <small class="text-white-50 fw-bold">DENTISTAS E CIA</small>
+                            <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
                         </div>
                     </div>
                 </div>
@@ -439,12 +430,10 @@
                     <div class="testimonial-card">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="text-white fs-5 fst-italic mb-4">"Anunciei na Publicars sem pretensão nenhuma, pois sou autônomo e trabalho como marido de aluguel. Me surpreendi muito, invisto pouco e retorna muito! Obrigado Publicars."</p>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h5 class="text-primary fw-bold mb-0">CÉZAR AUGUSTO</h5>
-                                <small class="text-white-50 fw-bold">MARIDO DE ALUGUEL</small>
-                                <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
-                            </div>
+                        <div>
+                            <h5 class="text-primary fw-bold mb-0">CÉZAR AUGUSTO</h5>
+                            <small class="text-white-50 fw-bold">MARIDO DE ALUGUEL</small>
+                            <div class="text-secondary small mt-1">PORTO ALEGRE - RS</div>
                         </div>
                     </div>
                 </div>
@@ -496,13 +485,13 @@
                         </div>
                         
                         <div class="row mt-5 text-center bg-black rounded-4 py-4 mx-0 border border-secondary g-0">
-                            <div class="col-6 border-end border-secondary">
-                                <small class="text-white-50 fw-bold text-uppercase">Frota</small>
-                                <h3 class="text-white fw-bold mt-2" id="carrosDisplay">3 Carros</h3>
+                            <div class="col-6 border-end border-secondary d-flex flex-column justify-content-center">
+                                <h3 class="text-white fw-bold m-0" id="carrosDisplay">3</h3>
+                                <small class="text-white-50 fw-bold text-uppercase mt-1">Carros</small>
                             </div>
-                            <div class="col-6">
-                                <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal Estimado</small>
-                                <h3 class="text-white fw-bold mt-2" id="viewsDisplay">3.300</h3>
+                            <div class="col-6 d-flex flex-column justify-content-center">
+                                <h3 class="text-white fw-bold m-0" id="viewsDisplay">3.300</h3>
+                                <small class="text-white-50 fw-bold text-uppercase mt-1">Pessoas Alcance Mensal</small>
                             </div>
                         </div>
 
@@ -518,18 +507,24 @@
         </div>
     </section>
 
+    <section class="py-5 bg-black">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <div class="rocket-card">
+                        <img src="static/foguete-1.png" class="img-fluid" alt="Não fique para trás">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container text-center">
             <img src="static/7.png" alt="Publicars Logo" class="logo-circle mb-4">
-            <p class="text-readable small m-0 mb-3">
-                Publicidade Itinerante - Uma marca do Grupo Empório Piacce Ltda.<br>
-                Rua Tamoio, 741 - Canoas/RS | (51) 99300-1678
+            <p class="text-white-50 small m-0">
+                Publicars - Publicidade Itinerante. Uma marca do Grupo Empório Piacce Ltda. Cnpj: 46.671.167/0001-85.
             </p>
-            <div class="mt-4">
-                <a href="#" class="text-white-50 me-4 fs-4"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white-50 me-4 fs-4"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-white-50 fs-4"><i class="fab fa-facebook"></i></a>
-            </div>
         </div>
     </footer>
 
@@ -557,8 +552,11 @@
             // Atualiza Textos
             nomeDisplay.innerText = plano.nome;
             valorDisplay.innerText = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            carrosDisplay.innerText = plano.carros + " Carros";
+            
+            // AGORA APENAS O NÚMERO
+            carrosDisplay.innerText = plano.carros; 
             viewsDisplay.innerText = plano.views;
+            
             ecoDisplay.innerText = plano.msg;
 
             // Link do Zap
