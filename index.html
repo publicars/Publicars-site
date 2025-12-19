@@ -96,7 +96,7 @@
         }
         .rocket-card:hover { transform: translateY(-10px); }
 
-        /* VIDEO INSTITUCIONAL (NOVA SEÇÃO) */
+        /* VIDEO INSTITUCIONAL */
         .video-institucional-box {
             border-radius: 25px;
             overflow: hidden;
@@ -105,10 +105,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        .video-institucional-box video {
-            width: 100%;
-            display: block;
-        }
+        .video-institucional-box video { width: 100%; display: block; }
 
         /* COMPARATIVO */
         .card-compare {
@@ -122,20 +119,13 @@
         }
         .card-compare.bad:hover { opacity: 1; transform: scale(1.02); }
 
-        /* O VENCEDOR (STICKY) */
         .card-compare.good { 
             background: linear-gradient(180deg, #051a05, #000); 
             border: 3px solid var(--primary); 
             box-shadow: 0 0 60px rgba(0, 200, 83, 0.2); 
             height: auto !important; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 120px; 
-            z-index: 10;
+            display: flex; flex-direction: column; justify-content: center; text-align: center;
+            position: -webkit-sticky; position: sticky; top: 120px; z-index: 10;
         }
         
         .price-tag { font-size: 3rem; font-weight: 900; margin: 15px 0; letter-spacing: -1px; }
@@ -146,12 +136,7 @@
         
         /* DEPOIMENTOS CARDS */
         .testimonial-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 30px;
-            height: 100%;
-            transition: 0.3s;
+            background: #111; border: 1px solid #333; border-radius: 20px; padding: 30px; height: 100%; transition: 0.3s;
         }
         .testimonial-card:hover { border-color: var(--primary); transform: translateY(-5px); }
         .quote-icon { color: var(--primary); font-size: 2rem; margin-bottom: 20px; opacity: 0.5; }
@@ -160,6 +145,18 @@
         .simulador-box { background: #151515; padding: 50px; border-radius: 30px; border: 1px solid #333; }
         input[type=range] { accent-color: var(--primary); width: 100%; cursor: pointer; height: 10px; }
         .plan-badge { background: #333; color: #fff; padding: 8px 20px; border-radius: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+        
+        /* Labels do Slider */
+        .slider-labels span {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.8rem; /* Tamanho ajustado para mobile */
+        }
+        .slider-labels span.active {
+            color: var(--primary) !important;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
 
         footer { background: #000; padding: 80px 0; border-top: 1px solid #222; }
 
@@ -169,6 +166,8 @@
             .d-flex.gap-3 { justify-content: center; }
             .order-mobile { order: -1; margin-bottom: 40px; }
             .card-compare.good { position: relative; top: 0; margin-top: 30px; }
+            /* Ajuste extra para os labels no mobile não grudarem */
+            .slider-labels span { font-size: 0.7rem; letter-spacing: 0; }
         }
     </style>
 </head>
@@ -300,7 +299,6 @@
         <div class="container py-5 text-center">
             <h6 class="text-secondary fw-bold text-uppercase fs-5">MANIFESTO PUBLICARS</h6>
             <h2 class="text-white fw-bold display-5 mb-5">Veja como geramos conexões reais</h2>
-            
             <div class="video-institucional-box">
                 <video controls poster="static/7.png">
                     <source src="static/video-institucional.mp4" type="video/mp4">
@@ -319,13 +317,11 @@
             </div>
 
             <div class="row">
-                
                 <div class="col-lg-6">
-                    
                     <h4 class="text-white text-center mb-4 fw-bold text-uppercase" style="letter-spacing: 2px;">
                         <i class="fas fa-history text-secondary me-2"></i> Mídia Tradicional
                     </h4>
-
+                    
                     <div class="card-compare bad">
                         <div class="badge bg-danger mb-3 fs-6">RISCO ALTO</div>
                         <h3 class="text-white fw-bold">1.000 Panfletos</h3>
@@ -365,11 +361,9 @@
                             <li><i class="fas fa-chart-bar text-danger me-3"></i> Sem métricas exatas</li>
                         </ul>
                     </div>
-
                 </div>
 
                 <div class="col-lg-6">
-                    
                     <h4 class="text-primary text-center mb-4 fw-bold text-uppercase" style="letter-spacing: 2px;">
                         <i class="fas fa-rocket text-primary me-2"></i> Mídia DOOH Publicars
                     </h4>
@@ -414,7 +408,6 @@
         <div class="container py-5 text-center">
             <h6 class="text-primary fw-bold text-uppercase fs-5">RESULTADOS REAIS</h6>
             <h2 class="text-white fw-bold display-5 mb-5">O que nossos clientes falam</h2>
-            
             <div class="row g-4">
                 <div class="col-lg-4">
                     <div class="testimonial-card">
@@ -495,11 +488,11 @@
                         
                         <input type="range" min="1" max="4" step="1" value="1" id="planSlider" style="height: 15px;">
                         
-                        <div class="d-flex justify-content-between text-white-50 small mt-3 px-1 fw-bold text-uppercase">
-                            <span>Start</span>
-                            <span>Aceleração</span>
-                            <span>Turbo</span>
-                            <span>Dominador</span>
+                        <div class="d-flex justify-content-between mt-3 px-1 fw-bold text-uppercase slider-labels">
+                            <span id="label1" class="text-primary active">Start</span>
+                            <span id="label2" class="text-white-50">Aceleração</span>
+                            <span id="label3" class="text-white-50">Turbo</span>
+                            <span id="label4" class="text-white-50">Dominador</span>
                         </div>
                         
                         <div class="row mt-5 text-center bg-black rounded-4 py-4 mx-0 border border-secondary g-0">
@@ -508,7 +501,7 @@
                                 <h3 class="text-white fw-bold mt-2" id="carrosDisplay">3 Carros</h3>
                             </div>
                             <div class="col-6">
-                                <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal</small>
+                                <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal Estimado</small>
                                 <h3 class="text-white fw-bold mt-2" id="viewsDisplay">3.300</h3>
                             </div>
                         </div>
@@ -561,14 +554,30 @@
             const nivel = slider.value;
             const plano = planos[nivel];
 
+            // Atualiza Textos
             nomeDisplay.innerText = plano.nome;
             valorDisplay.innerText = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             carrosDisplay.innerText = plano.carros + " Carros";
             viewsDisplay.innerText = plano.views;
             ecoDisplay.innerText = plano.msg;
 
+            // Link do Zap
             const msg = `Olá! Vi o plano ${plano.nome} no site: ${plano.carros} carros por R$ ${plano.valor}. Quero fechar!`;
             btnZap.href = `https://wa.me/5551993001678?text=${encodeURIComponent(msg)}`;
+
+            // Lógica de Highlight dos Labels
+            for(let i=1; i<=4; i++) {
+                const label = document.getElementById('label' + i);
+                if(i == nivel) {
+                    label.classList.add('active');
+                    label.classList.remove('text-white-50');
+                    label.classList.add('text-primary');
+                } else {
+                    label.classList.remove('active');
+                    label.classList.add('text-white-50');
+                    label.classList.remove('text-primary');
+                }
+            }
         }
 
         slider.addEventListener('input', updatePlan);
