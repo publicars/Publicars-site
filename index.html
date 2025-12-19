@@ -36,6 +36,16 @@
         .text-white-50 { color: rgba(255,255,255,0.8) !important; }
         .highlight-yellow { color: #FFD700 !important; font-weight: bold; }
 
+        /* DESTAQUE DE PREÇO (NOVO) */
+        .price-badge {
+            background-color: var(--primary);
+            color: #000;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 900;
+            display: inline-block;
+        }
+
         /* NAVBAR */
         .navbar {
             background-color: rgba(0, 0, 0, 0.95);
@@ -253,8 +263,9 @@
                         <span class="text-highlight">Em Movimento.</span>
                     </h1>
                     <p class="text-readable mb-5 fs-4">
-                        Transformamos carros de aplicativo em vitrines digitais. 
-                        Planos a partir de R$ 89,90. Muito mais barato e eficiente que panfletagem.
+                        Transformamos carros de aplicativo em vitrines digitais com planos a partir de 
+                        <span class="price-badge">R$ 89,90</span>. 
+                        Muito mais barato e eficiente que muitas outras publicidades!
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-5 py-3 fs-5">
@@ -605,9 +616,9 @@
         const planos = {
             1: { nome: "PILOTO", valor: 89.90, carros: 1, views: "1.100", msg: "Teste a tecnologia com baixo custo." },
             2: { nome: "START", valor: 189, carros: 3, views: "3.300", msg: "Validação ideal para pequenos negócios." },
-            3: { nome: "ACELERAÇÃO", valor: 399, carros: 10, views: "11.000", msg: "Melhor Custo-Benefício! (R$ 39,90 por carro)" },
+            3: { nome: "ACELERAÇÃO", valor: 399, carros: 10, views: "11.000", msg: "Melhor Custo-Benefício! (R$ 29/carro)" },
             4: { nome: "TURBO", valor: 599, carros: 20, views: "22.000", msg: "Domine seu bairro completamente." },
-            5: { nome: "DOMINADOR", valor: 999, carros: 50, views: "55.000", msg: "Preço Imbatível: Apenas R$ 19,98 por carro!" }
+            5: { nome: "DOMINADOR", valor: 999, carros: 50, views: "55.000", msg: "Preço Imbatível: Apenas R$ 19/carro!" }
         };
 
         const slider = document.getElementById('planSlider');
