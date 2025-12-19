@@ -36,7 +36,7 @@
         .text-white-50 { color: rgba(255,255,255,0.8) !important; }
         .highlight-yellow { color: #FFD700 !important; font-weight: bold; }
 
-        /* DESTAQUE DE PREÇO (NOVO) */
+        /* DESTAQUE DE PREÇO NA HERO */
         .price-badge {
             background-color: var(--primary);
             color: #000;
@@ -67,12 +67,6 @@
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
             transition: 0.3s;
         }
-
-        .btn-area-cliente {
-            border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; padding: 10px 30px;
-            text-decoration: none; font-weight: bold; transition: 0.3s;
-        }
-        .btn-area-cliente:hover { background: var(--primary); color: #000; }
 
         /* HERO SECTION */
         .hero {
@@ -183,7 +177,7 @@
         .sim-title-box {
             min-height: 55px;
             display: flex;
-            align-items: flex-start;
+            align-items: flex-end; /* Mudamos para End para alinhar base da escrita */
             justify-content: center;
             margin-bottom: 5px;
             padding-top: 5px;
@@ -203,6 +197,7 @@
             /* Ajuste Mobile Simulador */
             .simulador-data h3 { font-size: 2.2rem; }
             .simulador-box { padding: 20px; }
+            .sim-title-box { align-items: flex-start; } /* No mobile sobe o titulo */
             
             /* CENTRALIZAR LISTA NO MOBILE */
             .list-check li {
@@ -243,8 +238,13 @@
                     <li class="nav-item">
                         <a class="nav-link text-warning fw-bold border border-warning rounded-pill px-3 mx-2" href="motorista.html">Seja Parceiro</a>
                     </li>
-                    <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
-                        <a href="https://app.publicars.com.br/login" class="btn-area-cliente">Área do Cliente</a>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0 d-flex gap-2 justify-content-center">
+                        <a href="https://app.publicars.com.br/login" target="_blank" class="btn btn-outline-light rounded-pill px-3 btn-sm fw-bold d-flex align-items-center">
+                            Entrar
+                        </a>
+                        <button class="btn btn-warning rounded-pill px-3 btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#modalCadastro">
+                            Criar Conta
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -611,8 +611,92 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: #111; border: 1px solid #333; color: #fff;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Criar Conta Publicars</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCadastro">
+                        <div class="mb-3">
+                            <label class="form-label text-white-50 small">Nome da Empresa / Seu Nome</label>
+                            <input type="text" id="nomeInput" class="form-control bg-dark text-white border-secondary" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white-50 small">E-mail</label>
+                            <input type="email" id="emailInput" class="form-control bg-dark text-white border-secondary" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white-50 small">Senha</label>
+                            <input type="password" id="senhaInput" class="form-control bg-dark text-white border-secondary" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning fw-bold rounded-pill">
+                                <span id="btnText">CADASTRAR E ACESSAR</span>
+                                <span id="btnLoading" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                            </button>
+                        </div>
+                        <p id="msgErro" class="text-danger small text-center mt-3 d-none"></p>
+                        <p id="msgSucesso" class="text-success small text-center mt-3 d-none">Conta criada! Redirecionando...</p>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <small class="text-white-50">Já tem conta? <a href="https://app.publicars.com.br/login" class="text-warning text-decoration-none">Fazer Login</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
+        // CONFIGURAÇÃO SUPABASE
+        const supabaseUrl = 'https://nzwsjfpagrysrcmvouoo.supabase.co'; 
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56d3NqZnBhZ3J5c3JjbXZvdW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4NTA1NzgsImV4cCI6MjA3NDQyNjU3OH0.pWOToPZAeoTHty-Kwopc8Sr1h_0lGJ696BBE-BDw7CY';
+        
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // LOGICA DE CADASTRO
+        const formCadastro = document.getElementById('formCadastro');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        const msgErro = document.getElementById('msgErro');
+        const msgSucesso = document.getElementById('msgSucesso');
+
+        formCadastro.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('senhaInput').value;
+            const nome = document.getElementById('nomeInput').value;
+
+            btnText.classList.add('d-none');
+            btnLoading.classList.remove('d-none');
+            msgErro.classList.add('d-none');
+
+            try {
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: { data: { full_name: nome, origem: 'site_landing_page' } }
+                });
+
+                if (error) throw error;
+
+                msgSucesso.classList.remove('d-none');
+                setTimeout(() => { window.location.href = "https://app.publicars.com.br/login"; }, 2000);
+
+            } catch (error) {
+                msgErro.innerText = "Erro: " + error.message;
+                msgErro.classList.remove('d-none');
+                btnText.classList.remove('d-none');
+                btnLoading.classList.add('d-none');
+            }
+        });
+
+        // SIMULADOR
         const planos = {
             1: { nome: "PILOTO", valor: 89.90, carros: 1, views: "1.100", msg: "Teste a tecnologia com baixo custo." },
             2: { nome: "START", valor: 189, carros: 3, views: "3.300", msg: "Validação ideal para pequenos negócios." },
@@ -641,7 +725,6 @@
             viewsDisplay.innerText = plano.views;
             ecoDisplay.innerText = plano.msg;
 
-            // Lógica Singular/Plural
             if(plano.carros == 1) {
                 labelCarros.innerText = "CARRO";
             } else {
