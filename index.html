@@ -129,26 +129,26 @@
         
         .price-tag { font-size: 3rem; font-weight: 900; margin: 15px 0; letter-spacing: -1px; }
         
-        /* LISTA PLANO START - AJUSTE RESPONSIVO */
+        /* LISTA PLANO START */
         .list-check { text-align: left; display: inline-block; margin-top: 15px; width: 100%; }
         .list-check li { 
             margin-bottom: 20px; 
             font-size: 1.1rem; 
             list-style: none; 
             display: flex; 
-            align-items: flex-start; /* Alinha icone no topo */
+            align-items: flex-start;
             color: var(--text-light);
         }
         .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
-        /* Flexbox para quebrar linha no mobile */
+        /* Wrapper para quebrar linha no mobile e CENTRALIZAR */
         .text-wrapper {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
         }
 
-        /* DEPOIMENTOS */
+        /* DEPOIMENTOS CARDS */
         .testimonial-card {
             background: #111; border: 1px solid #333; border-radius: 20px; padding: 30px; height: 100%; 
             text-align: center; /* CENTRALIZADO */
@@ -163,21 +163,23 @@
         .slider-labels span { transition: 0.3s; cursor: pointer; font-size: 0.8rem; }
         .slider-labels span.active { color: var(--primary) !important; transform: scale(1.2); }
 
-        /* ALINHAMENTO DO SIMULADOR (NUMEROS) */
+        /* DADOS SIMULADOR */
         .simulador-data h3 { font-size: 2.5rem; line-height: 1; margin: 0; }
         .simulador-data small.label-bottom { font-size: 0.85rem; letter-spacing: 1px; display: block; margin-top: 5px; color: var(--primary); font-weight: bold; }
         
-        /* Caixa de Título Fixa para Alinhamento */
+        /* CAIXA DE TITULO (ALINHAMENTO FROTA/ALCANCE) */
         .sim-title-box {
-            height: 50px; /* Altura fixa para forçar alinhamento */
+            height: 60px; /* Altura suficiente para 2 ou 3 linhas */
             display: flex;
-            align-items: flex-end; /* Texto cola no fundo da caixa */
+            align-items: flex-end; /* Isso joga o texto para baixo (alinha a base) */
             justify-content: center;
             margin-bottom: 10px;
+            padding-bottom: 0;
         }
 
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
 
+        /* === AJUSTES RESPONSIVOS === */
         @media (max-width: 991px) {
             .hero { padding-top: 100px; text-align: center; }
             .hero-title { font-size: 2.2rem; }
@@ -190,9 +192,20 @@
             .simulador-data h3 { font-size: 2.2rem; }
             .simulador-box { padding: 20px; }
             
-            /* Plano Start Quebra de Linha Mobile */
-            .text-wrapper { flex-direction: column; }
-            .text-wrapper span { margin-left: 0 !important; margin-top: 5px; }
+            /* CENTRALIZAR LISTA NO MOBILE */
+            .list-check li {
+                flex-direction: column; /* Icone em cima, texto em baixo */
+                align-items: center;    /* Centraliza tudo */
+                text-align: center;     /* Texto centralizado */
+            }
+            .list-check li i { margin-bottom: 10px; margin-top: 0; }
+            
+            .text-wrapper { 
+                flex-direction: column; 
+                justify-content: center; 
+                width: 100%;
+            }
+            .text-wrapper span.highlight-yellow { margin-left: 0 !important; margin-top: 5px; display: block; }
         }
     </style>
 </head>
@@ -605,10 +618,8 @@
             nomeDisplay.innerText = plano.nome;
             valorDisplay.innerText = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             
-            // ATUALIZA SÓ O NÚMERO
             carrosDisplay.innerText = plano.carros; 
             viewsDisplay.innerText = plano.views;
-            
             ecoDisplay.innerText = plano.msg;
 
             const msg = `Olá! Vi o plano ${plano.nome} no site: ${plano.carros} carros por R$ ${plano.valor}. Quero fechar!`;
