@@ -118,6 +118,8 @@
             border-left: 8px solid var(--danger);
             opacity: 0.9; text-align: center;
         }
+        .card-compare.bad:hover { opacity: 1; transform: scale(1.02); }
+
         .card-compare.good { 
             background: linear-gradient(180deg, #051a05, #000); 
             border: 3px solid var(--primary); 
@@ -141,7 +143,7 @@
         }
         .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
-        /* Wrapper para quebrar linha no mobile e CENTRALIZAR */
+        /* Wrapper para quebrar linha no mobile */
         .text-wrapper {
             display: flex;
             flex-direction: row;
@@ -151,7 +153,7 @@
         /* DEPOIMENTOS CARDS */
         .testimonial-card {
             background: #111; border: 1px solid #333; border-radius: 20px; padding: 30px; height: 100%; 
-            text-align: center; /* CENTRALIZADO */
+            text-align: center;
         }
         .quote-icon { color: var(--primary); font-size: 2rem; margin-bottom: 20px; opacity: 0.5; }
 
@@ -167,14 +169,14 @@
         .simulador-data h3 { font-size: 2.5rem; line-height: 1; margin: 0; }
         .simulador-data small.label-bottom { font-size: 0.85rem; letter-spacing: 1px; display: block; margin-top: 5px; color: var(--primary); font-weight: bold; }
         
-        /* CAIXA DE TITULO (ALINHAMENTO FROTA/ALCANCE) */
+        /* CAIXA DE TITULO - ALINHAMENTO DO TOPO PARA EMPARELHAR "FROTA" COM "ALCANCE" */
         .sim-title-box {
-            height: 60px; /* Altura suficiente para 2 ou 3 linhas */
+            min-height: 55px; /* Altura fixa para alinhar os titulos */
             display: flex;
-            align-items: flex-end; /* Isso joga o texto para baixo (alinha a base) */
+            align-items: flex-start; /* Isso joga "FROTA" para o topo */
             justify-content: center;
-            margin-bottom: 10px;
-            padding-bottom: 0;
+            margin-bottom: 5px;
+            padding-top: 5px;
         }
 
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
@@ -192,17 +194,20 @@
             .simulador-data h3 { font-size: 2.2rem; }
             .simulador-box { padding: 20px; }
             
-            /* CENTRALIZAR LISTA NO MOBILE */
+            /* CENTRALIZAR LISTA NO MOBILE (PLANO START) */
             .list-check li {
-                flex-direction: column; /* Icone em cima, texto em baixo */
-                align-items: center;    /* Centraliza tudo */
-                text-align: center;     /* Texto centralizado */
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
             .list-check li i { margin-bottom: 10px; margin-top: 0; }
             
+            /* Centraliza as frases amarelas */
             .text-wrapper { 
                 flex-direction: column; 
                 justify-content: center; 
+                align-items: center;
+                text-align: center;
                 width: 100%;
             }
             .text-wrapper span.highlight-yellow { margin-left: 0 !important; margin-top: 5px; display: block; }
@@ -319,7 +324,7 @@
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
+                <div class="col-md-8">
                     <div class="rocket-card">
                         <img src="static/foguete-2.png" class="img-fluid" alt="Invista para ser lembrado">
                     </div>
@@ -618,6 +623,7 @@
             nomeDisplay.innerText = plano.nome;
             valorDisplay.innerText = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             
+            // ATUALIZA SÓ O NÚMERO
             carrosDisplay.innerText = plano.carros; 
             viewsDisplay.innerText = plano.views;
             ecoDisplay.innerText = plano.msg;
