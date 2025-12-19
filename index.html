@@ -169,11 +169,11 @@
         .simulador-data h3 { font-size: 2.5rem; line-height: 1; margin: 0; }
         .simulador-data small.label-bottom { font-size: 0.85rem; letter-spacing: 1px; display: block; margin-top: 5px; color: var(--primary); font-weight: bold; }
         
-        /* CAIXA DE TITULO - ALINHAMENTO DO TOPO PARA EMPARELHAR "FROTA" COM "ALCANCE" */
+        /* CAIXA DE TITULO */
         .sim-title-box {
-            min-height: 55px; /* Altura fixa para alinhar os titulos */
+            min-height: 55px;
             display: flex;
-            align-items: flex-start; /* Isso joga "FROTA" para o topo */
+            align-items: flex-start;
             justify-content: center;
             margin-bottom: 5px;
             padding-top: 5px;
@@ -188,13 +188,15 @@
             .d-flex.gap-3 { justify-content: center; }
             .order-mobile { order: -1; margin-bottom: 40px; }
             .card-compare.good { position: relative; top: 0; margin-top: 30px; }
-            .slider-labels span { font-size: 0.7rem; letter-spacing: 0; }
+            
+            /* Diminuir fonte dos labels do slider no mobile para caber 5 itens */
+            .slider-labels span { font-size: 0.6rem; letter-spacing: 0; }
             
             /* Ajuste Mobile Simulador */
             .simulador-data h3 { font-size: 2.2rem; }
             .simulador-box { padding: 20px; }
             
-            /* CENTRALIZAR LISTA NO MOBILE (PLANO START) */
+            /* CENTRALIZAR LISTA NO MOBILE */
             .list-check li {
                 flex-direction: column;
                 align-items: center;
@@ -254,7 +256,7 @@
                     </h1>
                     <p class="text-readable mb-5 fs-4">
                         Transformamos carros de aplicativo em vitrines digitais. 
-                        Planos a partir de R$ 125,00. Muito mais barato e eficiente que panfletagem.
+                        Planos a partir de R$ 89,90. Muito mais barato e eficiente que panfletagem.
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#simulador" class="btn btn-warning btn-lg rounded-pill fw-bold px-5 py-3 fs-5">
@@ -324,7 +326,7 @@
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-8 text-center">
                     <div class="rocket-card">
                         <img src="static/foguete-2.png" class="img-fluid" alt="Invista para ser lembrado">
                     </div>
@@ -409,20 +411,20 @@
                     <div class="card-compare good">
                         <div class="mb-4">
                             <span class="badge bg-success px-4 py-2 fs-6 mb-3 rounded-pill shadow">A MELHOR ESCOLHA</span>
-                            <h2 class="text-white fw-bold display-5">Plano Start Publicars</h2>
+                            <h2 class="text-white fw-bold display-5">Plano Piloto Publicars</h2>
                             <p class="text-readable fs-5">Tecnologia, vídeo e garantia de entrega.</p>
                         </div>
                         
                         <div class="bg-black rounded-5 py-4 border border-secondary mb-5 mx-2">
                             <span class="text-white-50 text-uppercase small ls-1 fw-bold">INVESTIMENTO MENSAL</span>
-                            <div class="price-tag text-primary my-2">R$ 125,00</div>
+                            <div class="price-tag text-primary my-2">R$ 89,90</div>
                             <span class="text-success fw-bold fs-5"><i class="fas fa-check me-2"></i>Mais barato que todos!</span>
                         </div>
                         
                         <h5 class="text-white fw-bold mb-4 border-bottom border-secondary pb-3 mx-auto w-75">Por que você ganha?</h5>
                         <ul class="list-check mx-auto ps-3 pe-3">
                             <li class="text-wrapper">
-                                <span><i class="fas fa-check-circle text-primary me-2"></i> <strong>3 Carros Rodando 30 Dias</strong></span>
+                                <span><i class="fas fa-check-circle text-primary me-2"></i> <strong>1 Carro Rodando 30 Dias</strong></span>
                             </li>
                             <li class="text-wrapper">
                                 <span><i class="fas fa-video text-primary me-2"></i> Anúncio com Vídeo e Imagem</span>
@@ -535,18 +537,19 @@
                     <div class="simulador-box">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <label class="text-white fw-bold fs-5">Plano Selecionado:</label>
-                            <span class="plan-badge" id="planoNome">START</span>
+                            <span class="plan-badge" id="planoNome">PILOTO</span>
                         </div>
                         
-                        <h2 class="text-primary fw-bold mb-5 display-3 text-center" id="valorDisplay">R$ 125,00</h2>
+                        <h2 class="text-primary fw-bold mb-5 display-3 text-center" id="valorDisplay">R$ 89,90</h2>
                         
-                        <input type="range" min="1" max="4" step="1" value="1" id="planSlider" style="height: 15px;">
+                        <input type="range" min="1" max="5" step="1" value="1" id="planSlider" style="height: 15px;">
                         
                         <div class="d-flex justify-content-between mt-3 px-1 fw-bold text-uppercase slider-labels">
-                            <span id="label1" class="text-primary active">Start</span>
-                            <span id="label2" class="text-white-50">Aceleração</span>
-                            <span id="label3" class="text-white-50">Turbo</span>
-                            <span id="label4" class="text-white-50">Dominador</span>
+                            <span id="label1" class="text-primary active">Piloto</span>
+                            <span id="label2" class="text-white-50">Start</span>
+                            <span id="label3" class="text-white-50">Aceleração</span>
+                            <span id="label4" class="text-white-50">Turbo</span>
+                            <span id="label5" class="text-white-50">Dominador</span>
                         </div>
                         
                         <div class="row mt-5 text-center bg-black rounded-4 py-4 mx-0 border border-secondary g-0">
@@ -554,14 +557,14 @@
                                 <div class="sim-title-box">
                                     <small class="text-white-50 fw-bold text-uppercase">Frota</small>
                                 </div>
-                                <h3 class="text-white fw-bold" id="carrosDisplay">3</h3>
-                                <small class="label-bottom">CARROS</small>
+                                <h3 class="text-white fw-bold" id="carrosDisplay">1</h3>
+                                <small class="label-bottom">CARRO</small>
                             </div>
                             <div class="col-6 simulador-data">
                                 <div class="sim-title-box">
                                     <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal Estimado</small>
                                 </div>
-                                <h3 class="text-white fw-bold" id="viewsDisplay">3.300</h3>
+                                <h3 class="text-white fw-bold" id="viewsDisplay">1.100</h3>
                                 <small class="label-bottom">PESSOAS</small>
                             </div>
                         </div>
@@ -571,7 +574,7 @@
                                 <i class="fab fa-whatsapp me-2"></i> Contratar Agora
                             </a>
                         </div>
-                        <p class="text-center text-white-50 mt-3 mb-0 small" id="economiDisplay">Excelente para começar!</p>
+                        <p class="text-center text-white-50 mt-3 mb-0 small" id="economiDisplay">Excelente para testar e validar.</p>
                     </div>
                 </div>
             </div>
@@ -602,10 +605,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const planos = {
-            1: { nome: "START", valor: 125, carros: 3, views: "3.300", msg: "Excelente para testar e validar." },
-            2: { nome: "ACELERAÇÃO", valor: 299, carros: 10, views: "11.000", msg: "Melhor Custo-Benefício! (R$ 29/carro)" },
-            3: { nome: "TURBO", valor: 499, carros: 20, views: "22.000", msg: "Domine seu bairro completamente." },
-            4: { nome: "DOMINADOR", valor: 799, carros: 50, views: "55.000", msg: "Preço Imbatível: Apenas R$ 15/carro!" }
+            1: { nome: "PILOTO", valor: 89.90, carros: 1, views: "1.100", msg: "Teste a tecnologia com baixo custo." },
+            2: { nome: "START", valor: 189, carros: 3, views: "3.300", msg: "Validação ideal para pequenos negócios." },
+            3: { nome: "ACELERAÇÃO", valor: 399, carros: 10, views: "11.000", msg: "Melhor Custo-Benefício! (R$ 29/carro)" },
+            4: { nome: "TURBO", valor: 599, carros: 20, views: "22.000", msg: "Domine seu bairro completamente." },
+            5: { nome: "DOMINADOR", valor: 999, carros: 50, views: "55.000", msg: "Preço Imbatível: Apenas R$ 19/carro!" }
         };
 
         const slider = document.getElementById('planSlider');
@@ -623,7 +627,6 @@
             nomeDisplay.innerText = plano.nome;
             valorDisplay.innerText = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             
-            // ATUALIZA SÓ O NÚMERO
             carrosDisplay.innerText = plano.carros; 
             viewsDisplay.innerText = plano.views;
             ecoDisplay.innerText = plano.msg;
@@ -631,7 +634,7 @@
             const msg = `Olá! Vi o plano ${plano.nome} no site: ${plano.carros} carros por R$ ${plano.valor}. Quero fechar!`;
             btnZap.href = `https://wa.me/5551993001678?text=${encodeURIComponent(msg)}`;
 
-            for(let i=1; i<=4; i++) {
+            for(let i=1; i<=5; i++) {
                 const label = document.getElementById('label' + i);
                 if(i == nivel) {
                     label.classList.add('active');
