@@ -137,7 +137,7 @@
         .list-check li { margin-bottom: 15px; font-size: 1.1rem; list-style: none; display: flex; align-items: flex-start; color: var(--text-light); }
         .list-check li i { margin-top: 5px; min-width: 30px; font-size: 1.2rem; }
         
-        /* DEPOIMENTOS CARDS - CENTRALIZADOS */
+        /* DEPOIMENTOS CARDS */
         .testimonial-card {
             background: #111; border: 1px solid #333; border-radius: 20px; padding: 30px; height: 100%; transition: 0.3s;
             text-align: center;
@@ -162,8 +162,17 @@
         }
 
         /* TEXTO DO SIMULADOR (NUMEROS E TITULOS) */
-        .simulador-data h3 { font-size: 2.5rem; line-height: 1; margin-bottom: 5px; }
-        .simulador-data small { font-size: 0.85rem; letter-spacing: 1px; display: block; }
+        .simulador-data h3 { font-size: 2.5rem; line-height: 1; margin-bottom: 0px; margin-top: 0px; }
+        .simulador-data small.label-bottom { font-size: 0.85rem; letter-spacing: 1px; display: block; margin-top: 5px; color: var(--primary); font-weight: bold; }
+        
+        /* Correção de alinhamento dos títulos superiores */
+        .sim-title-container {
+            min-height: 40px; /* Garante altura igual para alinhar os números */
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
 
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
 
@@ -177,7 +186,9 @@
             
             /* Ajuste Mobile Simulador */
             .simulador-data h3 { font-size: 2rem; }
-            .simulador-data small { font-size: 0.7rem; }
+            .simulador-data small.label-bottom { font-size: 0.7rem; }
+            /* Garante que o container do titulo tenha altura para alinhar mesmo que quebre linha */
+            .sim-title-container { min-height: 50px; }
         }
     </style>
 </head>
@@ -391,11 +402,11 @@
                             <li class="text-white fs-5"><i class="fas fa-check-circle text-primary me-3"></i> <strong>3 Carros Rodando 30 Dias</strong></li>
                             <li class="text-white fs-5"><i class="fas fa-video text-primary me-3"></i> Anúncio com Vídeo e Imagem</li>
                             
-                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong> <span class="highlight-yellow">&nbsp;Flexibilidade total</span></li>
-                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong> <span class="highlight-yellow">&nbsp;(Visibilidade Extra)</span></li>
-                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong> <span class="highlight-yellow">&nbsp;QR Code para venda</span></li>
-                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong> <span class="highlight-yellow">&nbsp;Vai onde o cliente está</span></li>
-                            <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável (<span class="highlight-yellow">Sem "achismo"</span>)</li>
+                            <li class="text-white fs-5"><i class="fas fa-paint-brush text-primary me-3"></i> <strong>Sua Arte ou Nossa Criação:</strong><br class="d-block d-lg-none"><span class="highlight-yellow">Flexibilidade total</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-globe text-primary me-3"></i> <strong>Página de Assinantes</strong><br class="d-block d-lg-none"><span class="highlight-yellow">(Visibilidade Extra)</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-qrcode text-primary me-3"></i> <strong>Interativo:</strong><br class="d-block d-lg-none"><span class="highlight-yellow">QR Code para venda</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-map-marked-alt text-primary me-3"></i> <strong>GPS:</strong><br class="d-block d-lg-none"><span class="highlight-yellow">Vai onde o cliente está</span></li>
+                            <li class="text-white fs-5"><i class="fas fa-file-contract text-primary me-3"></i> Relatório Auditável <br class="d-block d-lg-none">(<span class="highlight-yellow">Sem "achismo"</span>)</li>
                             
                             <li class="text-white fs-5"><i class="fas fa-shield-alt text-primary me-3"></i> <strong>Zero Risco Jurídico ou Multas</strong></li>
                         </ul>
@@ -498,14 +509,18 @@
                         
                         <div class="row mt-5 text-center bg-black rounded-4 py-4 mx-0 border border-secondary g-0">
                             <div class="col-6 border-end border-secondary simulador-data">
-                                <small class="text-white-50 fw-bold text-uppercase mb-2">Frota</small>
+                                <div class="sim-title-container">
+                                    <small class="text-white-50 fw-bold text-uppercase">Frota</small>
+                                </div>
                                 <h3 class="text-white fw-bold m-0" id="carrosDisplay">3</h3>
-                                <small class="text-primary fw-bold mt-1">CARROS</small>
+                                <small class="label-bottom">CARROS</small>
                             </div>
                             <div class="col-6 simulador-data">
-                                <small class="text-white-50 fw-bold text-uppercase mb-2">Alcance Mensal Estimado</small>
+                                <div class="sim-title-container">
+                                    <small class="text-white-50 fw-bold text-uppercase">Alcance Mensal Estimado</small>
+                                </div>
                                 <h3 class="text-white fw-bold m-0" id="viewsDisplay">3.300</h3>
-                                <small class="text-primary fw-bold mt-1">PESSOAS</small>
+                                <small class="label-bottom">PESSOAS</small>
                             </div>
                         </div>
 
