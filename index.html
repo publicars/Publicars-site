@@ -653,50 +653,78 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
-        // CONFIGURAÇÃO SUPABASE
+        // 1. INICIALIZAÇÃO ÚNICA (Evita o erro "Already Declared")
         const supabaseUrl = 'https://nzwsjfpagrysrcmvouoo.supabase.co'; 
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56d3NqZnBhZ3J5c3JjbXZvdW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4NTA1NzgsImV4cCI6MjA3NDQyNjU3OH0.pWOToPZAeoTHty-Kwopc8Sr1h_0lGJ696BBE-BDw7CY';
         
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        // LOGICA DE CADASTRO
+        // 2. LÓGICA DE CADASTRO (AUTH + PERFIL CLIENTES)
         const formCadastro = document.getElementById('formCadastro');
         const btnText = document.getElementById('btnText');
         const btnLoading = document.getElementById('btnLoading');
         const msgErro = document.getElementById('msgErro');
         const msgSucesso = document.getElementById('msgSucesso');
 
-        formCadastro.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
-            const password = document.getElementById('senhaInput').value;
-            const nome = document.getElementById('nomeInput').value;
+        if(formCadastro) {
+            formCadastro.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Limpa estados
+                msgErro.classList.add('d-none');
+                btnText.classList.add('d-none');
+                btnLoading.classList.remove('d-none');
 
-            btnText.classList.add('d-none');
-            btnLoading.classList.remove('d-none');
-            msgErro.classList.add('d-none');
+                const nome = document.getElementById('nomeInput').value;
+                const email = document.getElementById('emailInput').value;
+                const password = document.getElementById('senhaInput').value;
 
-            try {
-                const { data, error } = await supabase.auth.signUp({
-                    email: email,
-                    password: password,
-                    options: { data: { full_name: nome, origem: 'site_landing_page' } }
-                });
+                try {
+                    // A. Cria o Login (Auth)
+                    const { data: authData, error: authError } = await supabase.auth.signUp({
+                        email: email,
+                        password: password,
+                        options: { data: { full_name: nome } }
+                    });
 
-                if (error) throw error;
+                    if (authError) throw authError;
 
-                msgSucesso.classList.remove('d-none');
-                setTimeout(() => { window.location.href = "https://app.publicars.com.br/login"; }, 2000);
+                    if (authData.user) {
+                        // B. Cria o Perfil na tabela 'clientes' (ESSENCIAL PARA O SISTEMA)
+                        // Isso conecta o usuário criado ao perfil comercial
+                        const { error: profileError } = await supabase
+                            .from('clientes')
+                            .insert([
+                                { 
+                                    user_id: authData.user.id, 
+                                    razao_social: nome, // Usamos o nome como Razão Social inicial
+                                    nome_fantasia: nome 
+                                }
+                            ]);
 
-            } catch (error) {
-                msgErro.innerText = "Erro: " + error.message;
-                msgErro.classList.remove('d-none');
-                btnText.classList.remove('d-none');
-                btnLoading.classList.add('d-none');
-            }
-        });
+                        if (profileError) {
+                            console.error("Erro ao criar perfil:", profileError);
+                            // Não paramos o fluxo, mas logamos o erro
+                        }
+                    }
 
-        // SIMULADOR
+                    // C. Sucesso
+                    msgSucesso.classList.remove('d-none');
+                    setTimeout(() => { 
+                        // Redireciona para o login do sistema principal
+                        window.location.href = "https://app.publicars.com.br/login"; 
+                    }, 2000);
+
+                } catch (error) {
+                    msgErro.innerText = "Erro: " + (error.message || "Falha desconhecida");
+                    msgErro.classList.remove('d-none');
+                    btnText.classList.remove('d-none');
+                    btnLoading.classList.add('d-none');
+                }
+            });
+        }
+
+        // 3. SIMULADOR (Lógica mantida intacta)
         const planos = {
             1: { nome: "PILOTO", valor: 89.90, carros: 1, views: "1.100", msg: "Teste a tecnologia com baixo custo." },
             2: { nome: "START", valor: 189, carros: 3, views: "3.300", msg: "Validação ideal para pequenos negócios." },
@@ -748,8 +776,10 @@
             }
         }
 
-        slider.addEventListener('input', updatePlan);
-        updatePlan(); 
+        if(slider) {
+            slider.addEventListener('input', updatePlan);
+            updatePlan(); 
+        }
     </script>
 </body>
 </html>
