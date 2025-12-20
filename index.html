@@ -189,7 +189,7 @@
 
         footer { background: #000; padding: 60px 0; border-top: 1px solid #222; }
 
-        /* MODAL DARK */
+        /* MODAL DARK (INTEGRAÇÃO API) */
         .modal-content-dark {
             background-color: #1a1a1a;
             border: 1px solid #333;
@@ -411,6 +411,19 @@
                             <li><i class="fas fa-eye-slash text-danger me-3"></i> Impossível medir quem viu</li>
                         </ul>
                     </div>
+
+                    <div class="card-compare bad">
+                        <div class="badge bg-danger mb-3 fs-6">SEM VISUAL</div>
+                        <h3 class="text-white fw-bold">Rádio Local</h3>
+                        <div class="price-tag text-white">~R$ 900 <span class="fs-6 text-readable fw-normal">/pacote</span></div>
+                        <hr class="border-secondary w-50 mx-auto my-4">
+                        <ul class="list-check">
+                            <li><i class="fas fa-times text-danger me-3"></i> Ninguém anota telefone dirigindo</li>
+                            <li><i class="fas fa-image text-danger me-3"></i> Não mostra seu produto (cegueira)</li>
+                            <li><i class="fas fa-stopwatch text-warning me-3"></i> Dura 30 segundos e some</li>
+                            <li><i class="fas fa-chart-bar text-danger me-3"></i> Sem métricas exatas</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col-lg-6">
@@ -466,9 +479,9 @@
                         </ul>
 
                         <div class="mt-auto pt-5">
-                            <a href="#simulador" class="btn btn-success btn-lg rounded-pill w-100 fw-bold py-4 fs-4 shadow-lg">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalCadastroLead" class="btn btn-success btn-lg rounded-pill w-100 fw-bold py-4 fs-4 shadow-lg">
                                 ESCOLHER O FUTURO AGORA
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -675,7 +688,7 @@
         const ecoDisplay = document.getElementById('economiDisplay');
         const labelCarros = document.getElementById('carrosLabel');
 
-        let currentPlanoObj = planos[1]; // Guarda o plano atual selecionado
+        let currentPlanoObj = planos[1]; 
 
         function updatePlan() {
             const nivel = slider.value;
@@ -716,7 +729,6 @@
             e.preventDefault();
             
             const btn = document.getElementById('btnEnviarLead');
-            const originalText = btn.innerHTML;
             btn.innerHTML = 'REGISTRANDO... <i class="fas fa-spinner fa-spin"></i>';
             btn.disabled = true;
 
@@ -740,7 +752,7 @@
                 console.warn("Erro ao salvar no sistema (mas vamos abrir o whats igual):", error);
             }
 
-            // 2. REDIRECIONA PARA WHATSAPP (Sempre acontece, mesmo se API falhar)
+            // 2. REDIRECIONA PARA WHATSAPP
             const msgZap = `Olá! Me chamo ${dadosLead.responsavel} da empresa ${dadosLead.empresa}. Tenho interesse no *${dadosLead.pacote}* com ${currentPlanoObj.carros} carros.`;
             const linkZap = `https://wa.me/5551993001678?text=${encodeURIComponent(msgZap)}`;
             
