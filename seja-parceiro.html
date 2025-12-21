@@ -22,15 +22,45 @@
         .btn-green { background-color: #00C853; color: white; font-weight: bold; width: 100%; padding: 12px; border: none; border-radius: 5px; text-transform: uppercase; margin-top: 20px;}
         .btn-green:hover { background-color: #009624; }
         
-        label { color: #ccc; margin-top: 10px; font-weight: bold; font-size: 0.9em; }
-        input, select { background: #333 !important; color: white !important; border: 1px solid #555 !important; }
-        input:focus, select:focus { border-color: #00C853 !important; box-shadow: 0 0 0 0.25rem rgba(0, 200, 83, 0.25) !important; }
-        input[readonly] { background-color: #2c2c2c !important; color: #aaa !important; cursor: not-allowed; }
+        label { color: #eee; margin-top: 10px; font-weight: bold; font-size: 0.9em; letter-spacing: 0.5px; }
         
-        .form-check-input { background-color: #333; border-color: #555; }
-        .form-check-input:checked { background-color: #00C853; border-color: #00C853; }
-        .section-title { color: #00C853; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; }
+        /* CORREÇÃO DAS CORES DOS CAMPOS (Letra Branca) */
+        input, select, textarea { 
+            background-color: #333 !important; 
+            color: #ffffff !important; 
+            border: 1px solid #555 !important; 
+            font-size: 1.1em !important; /* Letra maior */
+        }
+        
+        /* Correção para quando o Chrome preenche automático (fundo amarelo feio) */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #333 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
 
+        /* Cor do texto de exemplo (Placeholder) */
+        ::placeholder { color: #bbb !important; opacity: 1; }
+
+        input:focus, select:focus { border-color: #00C853 !important; box-shadow: 0 0 0 0.25rem rgba(0, 200, 83, 0.25) !important; }
+        input[readonly] { background-color: #252525 !important; color: #aaa !important; cursor: not-allowed; }
+        
+        /* CHECKBOXES DOS APPS (Maiores e mais visíveis) */
+        .form-check { margin-right: 15px; margin-bottom: 10px; padding-left: 1.8em; }
+        .form-check-input { 
+            background-color: #444; 
+            border-color: #777; 
+            width: 1.3em; 
+            height: 1.3em; 
+            margin-top: 0.1em;
+            cursor: pointer;
+        }
+        .form-check-input:checked { background-color: #00C853; border-color: #00C853; }
+        .form-check-label { color: white; font-weight: normal; font-size: 1.1em; cursor: pointer; }
+
+        .section-title { color: #00C853; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; }
         .navbar-brand img { height: 50px; border-radius: 50%; border: 2px solid #fff; }
     </style>
 </head>
@@ -47,7 +77,7 @@
 
     <div class="hero">
         <h1 class="fw-bold text-success">PRÉ-CADASTRO DE PARCEIROS</h1>
-        <p class="lead">Preencha os dados abaixo. Se o seu perfil for aprovado, nossa equipe entrará em contato.</p>
+        <p class="lead">Preencha os dados abaixo. Cadastro rápido e simplificado.</p>
     </div>
 
     <div class="container">
@@ -58,15 +88,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label>Nome Completo *</label>
-                        <input type="text" id="nome" class="form-control" required placeholder="Ex: João Silva">
+                        <input type="text" id="nome" class="form-control" required placeholder="Digite seu nome">
                     </div>
                     <div class="col-md-6">
                         <label>WhatsApp *</label>
-                        <input type="text" id="telefone" class="form-control" required placeholder="(00) 00000-0000">
+                        <input type="text" id="telefone" class="form-control" required placeholder="(00) 90000-0000">
                     </div>
                     <div class="col-md-6">
                         <label>E-mail *</label>
-                        <input type="email" id="email" class="form-control" required placeholder="Seu melhor email">
+                        <input type="email" id="email" class="form-control" required placeholder="exemplo@email.com">
                     </div>
                     
                     <div class="col-md-4">
@@ -75,7 +105,7 @@
                     </div>
                     <div class="col-md-8">
                         <label>Endereço (Rua)</label>
-                        <input type="text" id="endereco" class="form-control" readonly>
+                        <input type="text" id="endereco" class="form-control" readonly placeholder="Preenchimento automático...">
                     </div>
                     <div class="col-md-4">
                         <label>Número *</label>
@@ -107,20 +137,24 @@
                         <input type="text" id="placa" class="form-control" required style="text-transform: uppercase;" placeholder="ABC-1234">
                     </div>
 
-                    <div class="col-12 mt-3">
-                        <label class="mb-2">Quais Apps você roda? *</label><br>
+                    <div class="col-12 mt-4">
+                        <label class="mb-3" style="color: #00C853;">Quais Apps você roda? (Pode selecionar vários) *</label><br>
+                        
                         <div class="form-check form-check-inline">
                             <input class="form-check-input chk-app" type="checkbox" value="Uber" id="appUber">
                             <label class="form-check-label" for="appUber">Uber</label>
                         </div>
+                        
                         <div class="form-check form-check-inline">
                             <input class="form-check-input chk-app" type="checkbox" value="99" id="app99">
                             <label class="form-check-label" for="app99">99</label>
                         </div>
+                        
                         <div class="form-check form-check-inline">
                             <input class="form-check-input chk-app" type="checkbox" value="InDrive" id="appInDrive">
                             <label class="form-check-label" for="appInDrive">InDrive</label>
                         </div>
+                        
                         <div class="form-check form-check-inline">
                             <input class="form-check-input chk-app" type="checkbox" value="Outros" id="appOutros">
                             <label class="form-check-label" for="appOutros">Outros</label>
@@ -154,16 +188,13 @@
             $('#cep').mask('00000-000');
         });
 
-        // FUNÇÃO DE BUSCA DE CEP (ViaCEP)
+        // BUSCA CEP
         function buscarCep() {
             var cep = document.getElementById('cep').value.replace(/\D/g, '');
             if (cep != "") {
                 var validacep = /^[0-9]{8}$/;
                 if(validacep.test(cep)) {
                     document.getElementById('endereco').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-
                     fetch(`https://viacep.com.br/ws/${cep}/json/`)
                         .then(response => response.json())
                         .then(data => {
@@ -176,22 +207,23 @@
                                 alert("CEP não encontrado.");
                             }
                         })
-                        .catch(e => alert("Erro ao buscar CEP."));
+                        .catch(e => console.log("Erro CEP"));
                 }
             }
         }
 
-        // ENVIO DO FORMULÁRIO
+        // ENVIO
         document.getElementById('formMotorista').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Coleta os Apps marcados
+            // Coleta os Apps (Permite selecionar vários)
             let appsSelecionados = [];
             document.querySelectorAll('.chk-app:checked').forEach((chk) => {
                 appsSelecionados.push(chk.value);
             });
+            
             if (appsSelecionados.length === 0) {
-                alert("Por favor, selecione pelo menos um App de transporte.");
+                alert("Por favor, marque pelo menos um Aplicativo que você usa.");
                 return;
             }
 
@@ -212,7 +244,7 @@
                 modelo_carro: document.getElementById('modelo').value,
                 ano_carro: document.getElementById('ano').value,
                 placa: document.getElementById('placa').value,
-                apps_trabalho: appsSelecionados.join(", "), // Transforma array em texto
+                apps_trabalho: appsSelecionados.join(", "), 
                 tempo_rodagem: document.getElementById('tempo_rodagem').value
             };
 
@@ -226,16 +258,14 @@
                 const result = await response.json();
 
                 if (response.ok && (result.status === 'sucesso' || result.status === 'ok')) {
-                    alert('✅ Pré-Cadastro Recebido! Analisaremos seu perfil e entraremos em contato.');
+                    alert('✅ Cadastro Recebido! Entraremos em contato em breve.');
                     window.location.href = 'index.html'; 
                 } else {
-                    console.error('Erro Backend:', result);
                     alert('Atenção: ' + (result.msg || 'Erro ao processar cadastro.'));
                     btn.innerText = 'TENTAR NOVAMENTE';
                     btn.disabled = false;
                 }
             } catch (error) {
-                console.error(error);
                 alert('Erro de conexão com o servidor.');
                 btn.innerText = 'ERRO - TENTAR NOVAMENTE';
                 btn.disabled = false;
